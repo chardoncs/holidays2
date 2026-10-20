@@ -1,14 +1,12 @@
-[tool.poetry]
-name = "gen"
+[project]
+name = "holidays2"
 version = "0.1.0"
-description = ""
-license = "MIT"
-authors = ["yukinarit <yukinari.tani@mapbox.com>"]
-
-[tool.poetry.dependencies]
-holidays = "*"
-jinja2 = "3"
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+readme = "README.md"
+authors = [
+    { name = "Charles Dong", email = "chardon_cs@proton.me" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "holidays>=0.107",
+    "jinja2>=3.1.6",
+]
