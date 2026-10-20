@@ -1,907 +1,1727 @@
-
 //! Kazakhstan
 use super::*;
 
 /// Generate holiday map for Kazakhstan.
 #[allow(unused_mut, unused_variables)]
-pub fn build(years: &Option<&std::ops::Range<Year>>) -> Result<HashMap<Year, BTreeMap<NaiveDate, Holiday>>> {
-  let mut map = HashMap::new();
+pub fn build(
+    years: &Option<&std::ops::Range<Year>>,
+) -> Result<HashMap<Year, BTreeMap<NaiveDate, Holiday>>> {
+    let mut map = HashMap::new();
 
-  build_year(
-    years,
-    2001,
-    vec![
+    build_year(
+        years,
+        2001,
+        vec![
+            (NaiveDate::from_ymd_res(2001, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2001, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2001, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2001, 5, 9)?, "Жеңіс күні"),
+            (
+                NaiveDate::from_ymd_res(2001, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2001, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2001, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2001, 3, 9)?,
+                "Демалыс күні (11.03.2001 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 3, 23)?,
+                "Демалыс күні (25.03.2001 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 4, 30)?,
+                "Демалыс күні (28.04.2001 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 12, 31)?,
+                "Демалыс күні (29.12.2001 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2001, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2001, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2001, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2001, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2001, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2001, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2001, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2001, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2001, 3, 9)?, "Демалыс күні (11.03.2001 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2001, 3, 23)?, "Демалыс күні (25.03.2001 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2001, 4, 30)?, "Демалыс күні (28.04.2001 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2001, 12, 31)?, "Демалыс күні (29.12.2001 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2002,
+        vec![
+            (NaiveDate::from_ymd_res(2002, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2002, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2002, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2002, 3, 22)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2002, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2002, 5, 9)?, "Жеңіс күні"),
+            (
+                NaiveDate::from_ymd_res(2002, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2002, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2002, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2002, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2002, 5, 10)?,
+                "Демалыс күні (12.05.2002 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2002,
-    vec![
+    build_year(
+        years,
+        2003,
+        vec![
+            (NaiveDate::from_ymd_res(2003, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2003, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2003, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2003, 3, 22)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2003, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2003, 5, 9)?, "Жеңіс күні"),
+            (
+                NaiveDate::from_ymd_res(2003, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2003, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2003, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2003, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2003, 3, 10)?,
+                "Халықаралық әйелдер күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 9, 1)?,
+                "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 10, 27)?,
+                "Республика күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 5, 2)?,
+                "Демалыс күні (04.05.2003 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 12, 15)?,
+                "Демалыс күні (13.12.2003 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2002, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2002, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2002, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2002, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2002, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2002, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2002, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2002, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2002, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2002, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2002, 5, 10)?, "Демалыс күні (12.05.2002 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2004,
+        vec![
+            (NaiveDate::from_ymd_res(2004, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2004, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2004, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2004, 3, 22)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2004, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2004, 5, 9)?, "Жеңіс күні"),
+            (
+                NaiveDate::from_ymd_res(2004, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2004, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2004, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2004, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2004, 5, 3)?,
+                "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 5, 10)?,
+                "Жеңіс күні (қайта белгіленген демалыс)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2003,
-    vec![
+    build_year(
+        years,
+        2005,
+        vec![
+            (NaiveDate::from_ymd_res(2005, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2005, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2005, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2005, 3, 22)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2005, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2005, 5, 9)?, "Жеңіс күні"),
+            (
+                NaiveDate::from_ymd_res(2005, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2005, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2005, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2005, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2005, 1, 3)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 1, 4)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 5, 2)?,
+                "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 12, 19)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 3, 7)?,
+                "Демалыс күні (05.03.2005 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 3, 21)?,
+                "Демалыс күні (19.03.2005 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 8, 29)?,
+                "Демалыс күні (27.08.2005 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 10, 24)?,
+                "Демалыс күні (22.10.2005 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2003, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2003, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2003, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2003, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2003, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2003, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2003, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2003, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2003, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2003, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2003, 3, 10)?, "Халықаралық әйелдер күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2003, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2003, 9, 1)?, "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2003, 10, 27)?, "Республика күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2003, 5, 2)?, "Демалыс күні (04.05.2003 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2003, 12, 15)?, "Демалыс күні (13.12.2003 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2006,
+        vec![
+            (NaiveDate::from_ymd_res(2006, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2006, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2006, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2006, 3, 22)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2006, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2006, 5, 9)?, "Жеңіс күні"),
+            (
+                NaiveDate::from_ymd_res(2006, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2006, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2006, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2006, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2006, 1, 3)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 12, 18)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 12, 19)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2006, 1, 10)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2006, 1, 11)?,
+                "Демалыс күні (14.01.2006 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 5, 8)?,
+                "Демалыс күні (06.05.2006 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2004,
-    vec![
+    build_year(
+        years,
+        2007,
+        vec![
+            (NaiveDate::from_ymd_res(2007, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2007, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2007, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2007, 3, 22)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2007, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2007, 5, 9)?, "Жеңіс күні"),
+            (
+                NaiveDate::from_ymd_res(2007, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2007, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2007, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2007, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2007, 12, 18)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2007, 12, 20)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2007, 3, 9)?,
+                "Демалыс күні (11.03.2007 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 3, 23)?,
+                "Демалыс күні (25.03.2007 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 8, 31)?,
+                "Демалыс күні (02.09.2007 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 10, 26)?,
+                "Демалыс күні (28.10.2007 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 12, 31)?,
+                "Демалыс күні (29.12.2007 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2004, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2004, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2004, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2004, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2004, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2004, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2004, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2004, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2004, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2004, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2004, 5, 3)?, "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2004, 5, 10)?, "Жеңіс күні (қайта белгіленген демалыс)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2008,
+        vec![
+            (NaiveDate::from_ymd_res(2008, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2008, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2008, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2008, 3, 22)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2008, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2008, 5, 9)?, "Жеңіс күні"),
+            (
+                NaiveDate::from_ymd_res(2008, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2008, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2008, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2008, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2008, 3, 10)?,
+                "Халықаралық әйелдер күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 9, 1)?,
+                "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 10, 27)?,
+                "Республика күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2008, 12, 8)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2008, 5, 2)?,
+                "Демалыс күні (04.05.2008 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2005,
-    vec![
+    build_year(
+        years,
+        2009,
+        vec![
+            (NaiveDate::from_ymd_res(2009, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2009, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2009, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2009, 3, 22)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2009, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2009, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2009, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2009, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2009, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2009, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2009, 3, 9)?,
+                "Халықаралық әйелдер күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 3, 23)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 5, 11)?,
+                "Жеңіс күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 8, 31)?,
+                "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2009, 11, 27)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2009, 12, 18)?,
+                "Демалыс күні (20.12.2009 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2005, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2005, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2005, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2005, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2005, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2005, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2005, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2005, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2005, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2005, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2005, 1, 3)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2005, 1, 4)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2005, 5, 2)?, "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2005, 12, 19)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2005, 3, 7)?, "Демалыс күні (05.03.2005 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2005, 3, 21)?, "Демалыс күні (19.03.2005 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2005, 8, 29)?, "Демалыс күні (27.08.2005 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2005, 10, 24)?, "Демалыс күні (22.10.2005 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2010,
+        vec![
+            (NaiveDate::from_ymd_res(2010, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2010, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2010, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2010, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2010, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2010, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2010, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2010, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2010, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2010, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2010, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2010, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2010, 1, 4)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 5, 3)?,
+                "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 5, 10)?,
+                "Жеңіс күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2010, 11, 16)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2010, 1, 8)?,
+                "Демалыс күні (10.01.2010 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 7, 5)?,
+                "Демалыс күні (03.07.2010 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2006,
-    vec![
+    build_year(
+        years,
+        2011,
+        vec![
+            (NaiveDate::from_ymd_res(2011, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2011, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2011, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2011, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2011, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2011, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2011, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2011, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2011, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2011, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2011, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2011, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2011, 1, 3)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 1, 4)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 5, 2)?,
+                "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 12, 19)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2011, 11, 6)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2011, 3, 7)?,
+                "Демалыс күні (05.03.2011 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 8, 29)?,
+                "Демалыс күні (27.08.2011 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2006, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2006, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2006, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2006, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2006, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2006, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2006, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2006, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2006, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2006, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2006, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2006, 1, 3)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2006, 12, 18)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2006, 12, 19)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2006, 1, 10)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2006, 1, 11)?, "Демалыс күні (14.01.2006 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2006, 5, 8)?, "Демалыс күні (06.05.2006 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2012,
+        vec![
+            (NaiveDate::from_ymd_res(2012, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2012, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2012, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2012, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2012, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2012, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2012, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2012, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2012, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2012, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2012, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2012, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2012, 1, 3)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 12, 3)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 12, 18)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2012, 10, 26)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2012, 3, 9)?,
+                "Демалыс күні (11.03.2012 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 4, 30)?,
+                "Демалыс күні (28.04.2012 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 12, 31)?,
+                "Демалыс күні (29.12.2012 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2007,
-    vec![
+    build_year(
+        years,
+        2013,
+        vec![
+            (NaiveDate::from_ymd_res(2013, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2013, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2013, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2013, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2013, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2013, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2013, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2013, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2013, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2013, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2013, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2013, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2013, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2013, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 7, 8)?,
+                "Астана күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 12, 2)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2013, 10, 15)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2013, 5, 10)?,
+                "Демалыс күні (04.05.2013 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 10, 14)?,
+                "Демалыс күні (12.10.2013 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2007, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2007, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2007, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2007, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2007, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2007, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2007, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2007, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2007, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2007, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2007, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2007, 12, 18)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2007, 12, 20)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2007, 3, 9)?, "Демалыс күні (11.03.2007 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2007, 3, 23)?, "Демалыс күні (25.03.2007 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2007, 8, 31)?, "Демалыс күні (02.09.2007 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2007, 10, 26)?, "Демалыс күні (28.10.2007 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2007, 12, 31)?, "Демалыс күні (29.12.2007 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2014,
+        vec![
+            (NaiveDate::from_ymd_res(2014, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2014, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2014, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2014, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2014, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2014, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2014, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2014, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2014, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2014, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2014, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2014, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2014, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2014, 3, 10)?,
+                "Халықаралық әйелдер күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 7, 7)?,
+                "Астана күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 9, 1)?,
+                "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2014, 10, 4)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2014, 1, 3)?,
+                "Демалыс күні (28.12.2013 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 5, 2)?,
+                "Демалыс күні (04.05.2014 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 5, 8)?,
+                "Демалыс күні (11.05.2014 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2008,
-    vec![
+    build_year(
+        years,
+        2015,
+        vec![
+            (NaiveDate::from_ymd_res(2015, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2015, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2015, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2015, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2015, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2015, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2015, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2015, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2015, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2015, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2015, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2015, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2015, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2015, 3, 9)?,
+                "Халықаралық әйелдер күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 5, 11)?,
+                "Жеңіс күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 8, 31)?,
+                "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2015, 9, 24)?, "Құрбан айт"),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2008, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2008, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2008, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2008, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2008, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2008, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2008, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2008, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2008, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2008, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2008, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2008, 3, 10)?, "Халықаралық әйелдер күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2008, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2008, 9, 1)?, "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2008, 10, 27)?, "Республика күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2008, 12, 8)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2008, 5, 2)?, "Демалыс күні (04.05.2008 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2016,
+        vec![
+            (NaiveDate::from_ymd_res(2016, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2016, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2016, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2016, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2016, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2016, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2016, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2016, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2016, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2016, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2016, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2016, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2016, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2016, 1, 4)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 5, 2)?,
+                "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 5, 10)?,
+                "Отан Қорғаушы күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 12, 19)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2016, 9, 12)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2016, 3, 7)?,
+                "Демалыс күні (05.03.2016 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2009,
-    vec![
+    build_year(
+        years,
+        2017,
+        vec![
+            (NaiveDate::from_ymd_res(2017, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2017, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2017, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2017, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2017, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2017, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2017, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2017, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2017, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2017, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2017, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2017, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2017, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2017, 1, 3)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 5, 8)?,
+                "Отан Қорғаушы күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 12, 18)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 12, 19)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2017, 9, 1)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2017, 3, 20)?,
+                "Демалыс күні (18.03.2017 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 7, 7)?,
+                "Демалыс күні (01.07.2017 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2009, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2009, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2009, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2009, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2009, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2009, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2009, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2009, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2009, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2009, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2009, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2009, 3, 9)?, "Халықаралық әйелдер күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2009, 3, 23)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2009, 5, 11)?, "Жеңіс күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2009, 8, 31)?, "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2009, 11, 27)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2009, 12, 18)?, "Демалыс күні (20.12.2009 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2018,
+        vec![
+            (NaiveDate::from_ymd_res(2018, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2018, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2018, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2018, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2018, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2018, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2018, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2018, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2018, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2018, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2018, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2018, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2018, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2018, 12, 3)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 12, 18)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2018, 8, 21)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2018, 3, 9)?,
+                "Демалыс күні (03.03.2018 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 4, 30)?,
+                "Демалыс күні (28.04.2018 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 5, 8)?,
+                "Демалыс күні (05.05.2018 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 8, 31)?,
+                "Демалыс күні (25.08.2018 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 12, 31)?,
+                "Демалыс күні (29.12.2018 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2010,
-    vec![
+    build_year(
+        years,
+        2019,
+        vec![
+            (NaiveDate::from_ymd_res(2019, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2019, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2019, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2019, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2019, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2019, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2019, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2019, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2019, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2019, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2019, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2019, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2019, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2019, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 7, 8)?,
+                "Астана күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 12, 2)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2019, 8, 11)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2019, 5, 10)?,
+                "Демалыс күні (04.05.2019 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2010, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2010, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2010, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2010, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2010, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2010, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2010, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2010, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2010, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2010, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2010, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2010, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2010, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2010, 1, 4)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2010, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2010, 5, 3)?, "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2010, 5, 10)?, "Жеңіс күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2010, 11, 16)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2010, 1, 8)?, "Демалыс күні (10.01.2010 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2010, 7, 5)?, "Демалыс күні (03.07.2010 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2020,
+        vec![
+            (NaiveDate::from_ymd_res(2020, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2020, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2020, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2020, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2020, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2020, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2020, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2020, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2020, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2020, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2020, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2020, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2020, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2020, 3, 9)?,
+                "Халықаралық әйелдер күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 8, 31)?,
+                "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2020, 7, 31)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2020, 1, 3)?,
+                "Демалыс күні (05.01.2020 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 5, 8)?,
+                "Демалыс күні (11.05.2020 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 12, 18)?,
+                "Демалыс күні (20.12.2020 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2011,
-    vec![
+    build_year(
+        years,
+        2021,
+        vec![
+            (NaiveDate::from_ymd_res(2021, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2021, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2021, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2021, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2021, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2021, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2021, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2021, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2021, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2021, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2021, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 12, 1)?,
+                "Қазақстан Республикасының Тұңғыш Президенті күні",
+            ),
+            (NaiveDate::from_ymd_res(2021, 12, 16)?, "Тəуелсіздік күні"),
+            (NaiveDate::from_ymd_res(2021, 12, 17)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2021, 1, 4)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 5, 3)?,
+                "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 5, 10)?,
+                "Жеңіс күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2021, 7, 20)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2021, 7, 5)?,
+                "Демалыс күні (03.07.2021 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2011, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2011, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2011, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2011, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2011, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2011, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2011, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2011, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2011, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2011, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2011, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2011, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2011, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2011, 1, 3)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2011, 1, 4)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2011, 5, 2)?, "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2011, 12, 19)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2011, 11, 6)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2011, 3, 7)?, "Демалыс күні (05.03.2011 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2011, 8, 29)?, "Демалыс күні (27.08.2011 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2022,
+        vec![
+            (NaiveDate::from_ymd_res(2022, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2022, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2022, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2022, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2022, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2022, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2022, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2022, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2022, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2022, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2022, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2022, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2022, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2022, 1, 3)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 1, 4)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 5, 2)?,
+                "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 5, 10)?,
+                "Отан Қорғаушы күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2022, 7, 9)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2022, 3, 7)?,
+                "Демалыс күні (05.03.2022 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 8, 29)?,
+                "Демалыс күні (27.08.2022 бастап ауыстырылды)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 10, 24)?,
+                "Демалыс күні (22.10.2022 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2012,
-    vec![
+    build_year(
+        years,
+        2023,
+        vec![
+            (NaiveDate::from_ymd_res(2023, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2023, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2023, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2023, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2023, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2023, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2023, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2023, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2023, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2023, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2023, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2023, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2023, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2023, 1, 3)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 5, 8)?,
+                "Отан Қорғаушы күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 12, 18)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2023, 6, 28)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2023, 7, 7)?,
+                "Демалыс күні (01.07.2023 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2012, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2012, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2012, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2012, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2012, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2012, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2012, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2012, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2012, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2012, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2012, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2012, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2012, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2012, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2012, 1, 3)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2012, 12, 3)?, "Қазақстан Республикасының Тұңғыш Президенті күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2012, 12, 18)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2012, 10, 26)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2012, 3, 9)?, "Демалыс күні (11.03.2012 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2012, 4, 30)?, "Демалыс күні (28.04.2012 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2012, 12, 31)?, "Демалыс күні (29.12.2012 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2024,
+        vec![
+            (NaiveDate::from_ymd_res(2024, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2024, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2024, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2024, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2024, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2024, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2024, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2024, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2024, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2024, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2024, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2024, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2024, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2024, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 7, 8)?,
+                "Астана күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2024, 6, 16)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2024, 5, 8)?,
+                "Демалыс күні (04.05.2024 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2013,
-    vec![
+    build_year(
+        years,
+        2025,
+        vec![
+            (NaiveDate::from_ymd_res(2025, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2025, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2025, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2025, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2025, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2025, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2025, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2025, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2025, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2025, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2025, 8, 30)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (NaiveDate::from_ymd_res(2025, 10, 25)?, "Республика күні"),
+            (NaiveDate::from_ymd_res(2025, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2025, 3, 10)?,
+                "Халықаралық әйелдер күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 7, 7)?,
+                "Астана күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 9, 1)?,
+                "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 10, 27)?,
+                "Республика күні (қайта белгіленген демалыс)",
+            ),
+            (NaiveDate::from_ymd_res(2025, 6, 6)?, "Құрбан айт"),
+            (
+                NaiveDate::from_ymd_res(2025, 1, 3)?,
+                "Демалыс күні (05.01.2025 бастап ауыстырылды)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2013, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2013, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2013, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2013, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2013, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2013, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2013, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2013, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2013, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2013, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2013, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2013, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2013, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2013, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2013, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2013, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2013, 7, 8)?, "Астана күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2013, 12, 2)?, "Қазақстан Республикасының Тұңғыш Президенті күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2013, 10, 15)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2013, 5, 10)?, "Демалыс күні (04.05.2013 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2013, 10, 14)?, "Демалыс күні (12.10.2013 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2026,
+        vec![
+            (NaiveDate::from_ymd_res(2026, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2026, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2026, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2026, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2026, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2026, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2026, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2026, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2026, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2026, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2026, 10, 25)?,
+                "Қазақстан Республикасы күні",
+            ),
+            (NaiveDate::from_ymd_res(2026, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2026, 3, 9)?,
+                "Халықаралық әйелдер күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 5, 11)?,
+                "Жеңіс күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 10, 26)?,
+                "Қазақстан Республикасы күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 5, 27)?,
+                "Құрбан айт (бағаланған)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2014,
-    vec![
+    build_year(
+        years,
+        2027,
+        vec![
+            (NaiveDate::from_ymd_res(2027, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2027, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2027, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2027, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2027, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2027, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2027, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2027, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2027, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2027, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2027, 3, 15)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 10, 25)?,
+                "Қазақстан Республикасы күні",
+            ),
+            (NaiveDate::from_ymd_res(2027, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2027, 1, 4)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 3, 24)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 5, 3)?,
+                "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 5, 10)?,
+                "Жеңіс күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 5, 16)?,
+                "Құрбан айт (бағаланған)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2014, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2014, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2014, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2014, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2014, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2014, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2014, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2014, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2014, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2014, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2014, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2014, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2014, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2014, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2014, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2014, 3, 10)?, "Халықаралық әйелдер күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2014, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2014, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2014, 7, 7)?, "Астана күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2014, 9, 1)?, "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2014, 10, 4)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2014, 1, 3)?, "Демалыс күні (28.12.2013 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2014, 5, 2)?, "Демалыс күні (04.05.2014 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2014, 5, 8)?, "Демалыс күні (11.05.2014 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2028,
+        vec![
+            (NaiveDate::from_ymd_res(2028, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2028, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2028, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2028, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2028, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2028, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2028, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2028, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2028, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2028, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2028, 3, 15)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 10, 25)?,
+                "Қазақстан Республикасы күні",
+            ),
+            (NaiveDate::from_ymd_res(2028, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2028, 1, 3)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 1, 4)?,
+                "Жаңа жыл (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 5, 8)?,
+                "Отан Қорғаушы күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 12, 18)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 5, 5)?,
+                "Құрбан айт (бағаланған)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2015,
-    vec![
+    build_year(
+        years,
+        2029,
+        vec![
+            (NaiveDate::from_ymd_res(2029, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2029, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2029, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2029, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2029, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2029, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2029, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2029, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2029, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2029, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2029, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2029, 3, 15)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2029, 10, 25)?,
+                "Қазақстан Республикасы күні",
+            ),
+            (NaiveDate::from_ymd_res(2029, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2029, 12, 17)?,
+                "Тəуелсіздік күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2029, 4, 24)?,
+                "Құрбан айт (бағаланған)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-      (NaiveDate::from_ymd_res(2015, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2015, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2015, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2015, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2015, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2015, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2015, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2015, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2015, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2015, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2015, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2015, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2015, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2015, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2015, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2015, 3, 9)?, "Халықаралық әйелдер күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2015, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2015, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2015, 5, 11)?, "Жеңіс күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2015, 8, 31)?, "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2015, 9, 24)?, "Құрбан айт"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
+    build_year(
+        years,
+        2030,
+        vec![
+            (NaiveDate::from_ymd_res(2030, 1, 1)?, "Жаңа жыл"),
+            (NaiveDate::from_ymd_res(2030, 1, 2)?, "Жаңа жыл"),
+            (
+                NaiveDate::from_ymd_res(2030, 1, 7)?,
+                "Православиелік Рождество",
+            ),
+            (
+                NaiveDate::from_ymd_res(2030, 3, 8)?,
+                "Халықаралық әйелдер күні",
+            ),
+            (NaiveDate::from_ymd_res(2030, 3, 22)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2030, 3, 21)?, "Наурыз мейрамы"),
+            (NaiveDate::from_ymd_res(2030, 3, 23)?, "Наурыз мейрамы"),
+            (
+                NaiveDate::from_ymd_res(2030, 5, 1)?,
+                "Қазақстан халқының бірлігі мерекесі",
+            ),
+            (NaiveDate::from_ymd_res(2030, 5, 7)?, "Отан Қорғаушы күні"),
+            (NaiveDate::from_ymd_res(2030, 5, 9)?, "Жеңіс күні"),
+            (NaiveDate::from_ymd_res(2030, 7, 6)?, "Астана күні"),
+            (
+                NaiveDate::from_ymd_res(2030, 3, 15)?,
+                "Қазақстан Республикасының Конституциясы күні",
+            ),
+            (
+                NaiveDate::from_ymd_res(2030, 10, 25)?,
+                "Қазақстан Республикасы күні",
+            ),
+            (NaiveDate::from_ymd_res(2030, 12, 16)?, "Тəуелсіздік күні"),
+            (
+                NaiveDate::from_ymd_res(2030, 3, 25)?,
+                "Наурыз мейрамы (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2030, 7, 8)?,
+                "Астана күні (қайта белгіленген демалыс)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2030, 4, 13)?,
+                "Құрбан айт (бағаланған)",
+            ),
+        ],
+        &mut map,
+        Country::KZ,
+        "Kazakhstan",
+    );
 
-  build_year(
-    years,
-    2016,
-    vec![
-
-      (NaiveDate::from_ymd_res(2016, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2016, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2016, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2016, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2016, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2016, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2016, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2016, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2016, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2016, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2016, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2016, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2016, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2016, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2016, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2016, 1, 4)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2016, 5, 2)?, "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2016, 5, 10)?, "Отан Қорғаушы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2016, 12, 19)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2016, 9, 12)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2016, 3, 7)?, "Демалыс күні (05.03.2016 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2017,
-    vec![
-
-      (NaiveDate::from_ymd_res(2017, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2017, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2017, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2017, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2017, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2017, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2017, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2017, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2017, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2017, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2017, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2017, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2017, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2017, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2017, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2017, 1, 3)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2017, 5, 8)?, "Отан Қорғаушы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2017, 12, 18)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2017, 12, 19)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2017, 9, 1)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2017, 3, 20)?, "Демалыс күні (18.03.2017 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2017, 7, 7)?, "Демалыс күні (01.07.2017 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2018,
-    vec![
-
-      (NaiveDate::from_ymd_res(2018, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2018, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2018, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2018, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2018, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2018, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2018, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2018, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2018, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2018, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2018, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2018, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2018, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2018, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2018, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2018, 12, 3)?, "Қазақстан Республикасының Тұңғыш Президенті күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2018, 12, 18)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2018, 8, 21)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2018, 3, 9)?, "Демалыс күні (03.03.2018 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2018, 4, 30)?, "Демалыс күні (28.04.2018 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2018, 5, 8)?, "Демалыс күні (05.05.2018 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2018, 8, 31)?, "Демалыс күні (25.08.2018 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2018, 12, 31)?, "Демалыс күні (29.12.2018 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2019,
-    vec![
-
-      (NaiveDate::from_ymd_res(2019, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2019, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2019, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2019, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2019, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2019, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2019, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2019, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2019, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2019, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2019, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2019, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2019, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2019, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2019, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2019, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2019, 7, 8)?, "Астана күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2019, 12, 2)?, "Қазақстан Республикасының Тұңғыш Президенті күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2019, 8, 11)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2019, 5, 10)?, "Демалыс күні (04.05.2019 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2020,
-    vec![
-
-      (NaiveDate::from_ymd_res(2020, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2020, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2020, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2020, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2020, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2020, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2020, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2020, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2020, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2020, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2020, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2020, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2020, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2020, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2020, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2020, 3, 9)?, "Халықаралық әйелдер күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2020, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2020, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2020, 8, 31)?, "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2020, 7, 31)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2020, 1, 3)?, "Демалыс күні (05.01.2020 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2020, 5, 8)?, "Демалыс күні (11.05.2020 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2020, 12, 18)?, "Демалыс күні (20.12.2020 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2021,
-    vec![
-
-      (NaiveDate::from_ymd_res(2021, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2021, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2021, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2021, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2021, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2021, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2021, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2021, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2021, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2021, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2021, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2021, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2021, 12, 1)?, "Қазақстан Республикасының Тұңғыш Президенті күні"),
-      (NaiveDate::from_ymd_res(2021, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2021, 12, 17)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2021, 1, 4)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2021, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2021, 5, 3)?, "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2021, 5, 10)?, "Жеңіс күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2021, 7, 20)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2021, 7, 5)?, "Демалыс күні (03.07.2021 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2022,
-    vec![
-
-      (NaiveDate::from_ymd_res(2022, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2022, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2022, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2022, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2022, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2022, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2022, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2022, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2022, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2022, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2022, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2022, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2022, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2022, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2022, 1, 3)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2022, 1, 4)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2022, 5, 2)?, "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2022, 5, 10)?, "Отан Қорғаушы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2022, 7, 9)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2022, 3, 7)?, "Демалыс күні (05.03.2022 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2022, 8, 29)?, "Демалыс күні (27.08.2022 бастап ауыстырылды)"),
-      (NaiveDate::from_ymd_res(2022, 10, 24)?, "Демалыс күні (22.10.2022 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2023,
-    vec![
-
-      (NaiveDate::from_ymd_res(2023, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2023, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2023, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2023, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2023, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2023, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2023, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2023, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2023, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2023, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2023, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2023, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2023, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2023, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2023, 1, 3)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2023, 5, 8)?, "Отан Қорғаушы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2023, 12, 18)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2023, 6, 28)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2023, 7, 7)?, "Демалыс күні (01.07.2023 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2024,
-    vec![
-
-      (NaiveDate::from_ymd_res(2024, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2024, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2024, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2024, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2024, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2024, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2024, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2024, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2024, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2024, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2024, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2024, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2024, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2024, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2024, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2024, 7, 8)?, "Астана күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2024, 6, 16)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2024, 5, 8)?, "Демалыс күні (04.05.2024 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2025,
-    vec![
-
-      (NaiveDate::from_ymd_res(2025, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2025, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2025, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2025, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2025, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2025, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2025, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2025, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2025, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2025, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2025, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2025, 8, 30)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2025, 10, 25)?, "Республика күні"),
-      (NaiveDate::from_ymd_res(2025, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2025, 3, 10)?, "Халықаралық әйелдер күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2025, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2025, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2025, 7, 7)?, "Астана күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2025, 9, 1)?, "Қазақстан Республикасының Конституциясы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2025, 10, 27)?, "Республика күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2025, 6, 6)?, "Құрбан айт"),
-      (NaiveDate::from_ymd_res(2025, 1, 3)?, "Демалыс күні (05.01.2025 бастап ауыстырылды)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2026,
-    vec![
-
-      (NaiveDate::from_ymd_res(2026, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2026, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2026, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2026, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2026, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2026, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2026, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2026, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2026, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2026, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2026, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2026, 10, 25)?, "Қазақстан Республикасы күні"),
-      (NaiveDate::from_ymd_res(2026, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2026, 3, 9)?, "Халықаралық әйелдер күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2026, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2026, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2026, 5, 11)?, "Жеңіс күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2026, 10, 26)?, "Қазақстан Республикасы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2026, 5, 27)?, "Құрбан айт (бағаланған)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2027,
-    vec![
-
-      (NaiveDate::from_ymd_res(2027, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2027, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2027, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2027, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2027, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2027, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2027, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2027, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2027, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2027, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2027, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2027, 3, 15)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2027, 10, 25)?, "Қазақстан Республикасы күні"),
-      (NaiveDate::from_ymd_res(2027, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2027, 1, 4)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2027, 3, 24)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2027, 5, 3)?, "Қазақстан халқының бірлігі мерекесі (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2027, 5, 10)?, "Жеңіс күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2027, 5, 16)?, "Құрбан айт (бағаланған)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2028,
-    vec![
-
-      (NaiveDate::from_ymd_res(2028, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2028, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2028, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2028, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2028, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2028, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2028, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2028, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2028, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2028, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2028, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2028, 3, 15)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2028, 10, 25)?, "Қазақстан Республикасы күні"),
-      (NaiveDate::from_ymd_res(2028, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2028, 1, 3)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2028, 1, 4)?, "Жаңа жыл (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2028, 5, 8)?, "Отан Қорғаушы күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2028, 12, 18)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2028, 5, 5)?, "Құрбан айт (бағаланған)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2029,
-    vec![
-
-      (NaiveDate::from_ymd_res(2029, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2029, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2029, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2029, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2029, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2029, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2029, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2029, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2029, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2029, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2029, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2029, 3, 15)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2029, 10, 25)?, "Қазақстан Республикасы күні"),
-      (NaiveDate::from_ymd_res(2029, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2029, 12, 17)?, "Тəуелсіздік күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2029, 4, 24)?, "Құрбан айт (бағаланған)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  build_year(
-    years,
-    2030,
-    vec![
-
-      (NaiveDate::from_ymd_res(2030, 1, 1)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2030, 1, 2)?, "Жаңа жыл"),
-      (NaiveDate::from_ymd_res(2030, 1, 7)?, "Православиелік Рождество"),
-      (NaiveDate::from_ymd_res(2030, 3, 8)?, "Халықаралық әйелдер күні"),
-      (NaiveDate::from_ymd_res(2030, 3, 22)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2030, 3, 21)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2030, 3, 23)?, "Наурыз мейрамы"),
-      (NaiveDate::from_ymd_res(2030, 5, 1)?, "Қазақстан халқының бірлігі мерекесі"),
-      (NaiveDate::from_ymd_res(2030, 5, 7)?, "Отан Қорғаушы күні"),
-      (NaiveDate::from_ymd_res(2030, 5, 9)?, "Жеңіс күні"),
-      (NaiveDate::from_ymd_res(2030, 7, 6)?, "Астана күні"),
-      (NaiveDate::from_ymd_res(2030, 3, 15)?, "Қазақстан Республикасының Конституциясы күні"),
-      (NaiveDate::from_ymd_res(2030, 10, 25)?, "Қазақстан Республикасы күні"),
-      (NaiveDate::from_ymd_res(2030, 12, 16)?, "Тəуелсіздік күні"),
-      (NaiveDate::from_ymd_res(2030, 3, 25)?, "Наурыз мейрамы (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2030, 7, 8)?, "Астана күні (қайта белгіленген демалыс)"),
-      (NaiveDate::from_ymd_res(2030, 4, 13)?, "Құрбан айт (бағаланған)"),
-    ],
-    &mut map,
-    Country::KZ,
-    "Kazakhstan",
-  );
-
-  Ok(map)
+    Ok(map)
 }

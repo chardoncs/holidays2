@@ -1,6 +1,6 @@
 use chrono::NaiveDate;
 
-use crate::{prelude::*, Holiday, HolidayPerCountryMap, Year};
+use crate::{Holiday, HolidayPerCountryMap, Year, prelude::*};
 
 pub fn should_build_year(years: &Option<&std::ops::Range<Year>>, year: Year) -> bool {
     years.is_none_or(|r| r.contains(&year))

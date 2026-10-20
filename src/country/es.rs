@@ -1,470 +1,735 @@
-
 //! Spain
 use super::*;
 
 /// Generate holiday map for Spain.
 #[allow(unused_mut, unused_variables)]
-pub fn build(years: &Option<&std::ops::Range<Year>>) -> Result<HashMap<Year, BTreeMap<NaiveDate, Holiday>>> {
-  let mut map = HashMap::new();
+pub fn build(
+    years: &Option<&std::ops::Range<Year>>,
+) -> Result<HashMap<Year, BTreeMap<NaiveDate, Holiday>>> {
+    let mut map = HashMap::new();
 
+    build_year(
+        years,
+        2008,
+        vec![
+            (NaiveDate::from_ymd_res(2008, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2008, 3, 21)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2008, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2008, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (NaiveDate::from_ymd_res(2008, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2008, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
+    build_year(
+        years,
+        2009,
+        vec![
+            (NaiveDate::from_ymd_res(2009, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2009, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2009, 4, 10)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2009, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2009, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
+    build_year(
+        years,
+        2010,
+        vec![
+            (NaiveDate::from_ymd_res(2010, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2010, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2010, 4, 2)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2010, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2010, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2010, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2010, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
+    build_year(
+        years,
+        2011,
+        vec![
+            (NaiveDate::from_ymd_res(2011, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2011, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2011, 4, 22)?, "Viernes Santo"),
+            (
+                NaiveDate::from_ymd_res(2011, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2011, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2011, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
+    build_year(
+        years,
+        2012,
+        vec![
+            (NaiveDate::from_ymd_res(2012, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2012, 4, 6)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2012, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2012, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2012, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2012, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
+    build_year(
+        years,
+        2013,
+        vec![
+            (NaiveDate::from_ymd_res(2013, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2013, 3, 29)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2013, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2013, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2013, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2013, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
+    build_year(
+        years,
+        2014,
+        vec![
+            (NaiveDate::from_ymd_res(2014, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2014, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2014, 4, 18)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2014, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2014, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (NaiveDate::from_ymd_res(2014, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2014, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2008,
-    vec![
+    build_year(
+        years,
+        2015,
+        vec![
+            (NaiveDate::from_ymd_res(2015, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2015, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2015, 4, 3)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2015, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2015, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-      (NaiveDate::from_ymd_res(2008, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2008, 3, 21)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2008, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2008, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2008, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2008, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2008, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2008, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
+    build_year(
+        years,
+        2016,
+        vec![
+            (NaiveDate::from_ymd_res(2016, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2016, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2016, 3, 25)?, "Viernes Santo"),
+            (
+                NaiveDate::from_ymd_res(2016, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2016, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2016, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2009,
-    vec![
+    build_year(
+        years,
+        2017,
+        vec![
+            (NaiveDate::from_ymd_res(2017, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2017, 4, 14)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2017, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2017, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2017, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2017, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-      (NaiveDate::from_ymd_res(2009, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2009, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2009, 4, 10)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2009, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2009, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2009, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2009, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2009, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
+    build_year(
+        years,
+        2018,
+        vec![
+            (NaiveDate::from_ymd_res(2018, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2018, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2018, 3, 30)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2018, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2018, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2018, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2018, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2010,
-    vec![
+    build_year(
+        years,
+        2019,
+        vec![
+            (NaiveDate::from_ymd_res(2019, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2019, 4, 19)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2019, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2019, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2019, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2019, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-      (NaiveDate::from_ymd_res(2010, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2010, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2010, 4, 2)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2010, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2010, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2010, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2010, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2010, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2010, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
+    build_year(
+        years,
+        2020,
+        vec![
+            (NaiveDate::from_ymd_res(2020, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2020, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2020, 4, 10)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2020, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2020, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2011,
-    vec![
+    build_year(
+        years,
+        2021,
+        vec![
+            (NaiveDate::from_ymd_res(2021, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2021, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2021, 4, 2)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2021, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2021, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2021, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2021, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-      (NaiveDate::from_ymd_res(2011, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2011, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2011, 4, 22)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2011, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2011, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2011, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2011, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2011, 12, 8)?, "Inmaculada Concepción"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
+    build_year(
+        years,
+        2022,
+        vec![
+            (NaiveDate::from_ymd_res(2022, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2022, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2022, 4, 15)?, "Viernes Santo"),
+            (
+                NaiveDate::from_ymd_res(2022, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2022, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2022, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2012,
-    vec![
+    build_year(
+        years,
+        2023,
+        vec![
+            (NaiveDate::from_ymd_res(2023, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2023, 4, 7)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2023, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2023, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2023, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2023, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-      (NaiveDate::from_ymd_res(2012, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2012, 4, 6)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2012, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2012, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2012, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2012, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2012, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2012, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2012, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
+    build_year(
+        years,
+        2024,
+        vec![
+            (NaiveDate::from_ymd_res(2024, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2024, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2024, 3, 29)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2024, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2024, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2024, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2024, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2013,
-    vec![
+    build_year(
+        years,
+        2025,
+        vec![
+            (NaiveDate::from_ymd_res(2025, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2025, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2025, 4, 18)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2025, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2025, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (NaiveDate::from_ymd_res(2025, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2025, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-      (NaiveDate::from_ymd_res(2013, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2013, 3, 29)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2013, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2013, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2013, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2013, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2013, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2013, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
+    build_year(
+        years,
+        2026,
+        vec![
+            (NaiveDate::from_ymd_res(2026, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2026, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2026, 4, 3)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2026, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2026, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2014,
-    vec![
+    build_year(
+        years,
+        2027,
+        vec![
+            (NaiveDate::from_ymd_res(2027, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2027, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2027, 3, 26)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2027, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2027, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2027, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2027, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-      (NaiveDate::from_ymd_res(2014, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2014, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2014, 4, 18)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2014, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2014, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2014, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2014, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2014, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2014, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
+    build_year(
+        years,
+        2028,
+        vec![
+            (NaiveDate::from_ymd_res(2028, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2028, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2028, 4, 14)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2028, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2028, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2028, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2028, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2015,
-    vec![
+    build_year(
+        years,
+        2029,
+        vec![
+            (NaiveDate::from_ymd_res(2029, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2029, 1, 6)?, "Epifanía del Señor"),
+            (NaiveDate::from_ymd_res(2029, 3, 30)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2029, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2029, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2029, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2029, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2029, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2029, 12, 8)?,
+                "Inmaculada Concepción",
+            ),
+            (
+                NaiveDate::from_ymd_res(2029, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-      (NaiveDate::from_ymd_res(2015, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2015, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2015, 4, 3)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2015, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2015, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2015, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2015, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2015, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
+    build_year(
+        years,
+        2030,
+        vec![
+            (NaiveDate::from_ymd_res(2030, 1, 1)?, "Año Nuevo"),
+            (NaiveDate::from_ymd_res(2030, 4, 19)?, "Viernes Santo"),
+            (NaiveDate::from_ymd_res(2030, 5, 1)?, "Fiesta del Trabajo"),
+            (
+                NaiveDate::from_ymd_res(2030, 8, 15)?,
+                "Asunción de la Virgen",
+            ),
+            (
+                NaiveDate::from_ymd_res(2030, 10, 12)?,
+                "Fiesta Nacional de España",
+            ),
+            (NaiveDate::from_ymd_res(2030, 11, 1)?, "Todos los Santos"),
+            (
+                NaiveDate::from_ymd_res(2030, 12, 6)?,
+                "Día de la Constitución Española",
+            ),
+            (
+                NaiveDate::from_ymd_res(2030, 12, 25)?,
+                "Natividad del Señor",
+            ),
+        ],
+        &mut map,
+        Country::ES,
+        "Spain",
+    );
 
-  build_year(
-    years,
-    2016,
-    vec![
-
-      (NaiveDate::from_ymd_res(2016, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2016, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2016, 3, 25)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2016, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2016, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2016, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2016, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2016, 12, 8)?, "Inmaculada Concepción"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2017,
-    vec![
-
-      (NaiveDate::from_ymd_res(2017, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2017, 4, 14)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2017, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2017, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2017, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2017, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2017, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2017, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2017, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2018,
-    vec![
-
-      (NaiveDate::from_ymd_res(2018, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2018, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2018, 3, 30)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2018, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2018, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2018, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2018, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2018, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2018, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2018, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2019,
-    vec![
-
-      (NaiveDate::from_ymd_res(2019, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2019, 4, 19)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2019, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2019, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2019, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2019, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2019, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2019, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2020,
-    vec![
-
-      (NaiveDate::from_ymd_res(2020, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2020, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2020, 4, 10)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2020, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2020, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2020, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2020, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2020, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2021,
-    vec![
-
-      (NaiveDate::from_ymd_res(2021, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2021, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2021, 4, 2)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2021, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2021, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2021, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2021, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2021, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2021, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2022,
-    vec![
-
-      (NaiveDate::from_ymd_res(2022, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2022, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2022, 4, 15)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2022, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2022, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2022, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2022, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2022, 12, 8)?, "Inmaculada Concepción"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2023,
-    vec![
-
-      (NaiveDate::from_ymd_res(2023, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2023, 4, 7)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2023, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2023, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2023, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2023, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2023, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2023, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2023, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2024,
-    vec![
-
-      (NaiveDate::from_ymd_res(2024, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2024, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2024, 3, 29)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2024, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2024, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2024, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2024, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2024, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2024, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2025,
-    vec![
-
-      (NaiveDate::from_ymd_res(2025, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2025, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2025, 4, 18)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2025, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2025, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2025, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2025, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2025, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2025, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2026,
-    vec![
-
-      (NaiveDate::from_ymd_res(2026, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2026, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2026, 4, 3)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2026, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2026, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2026, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2026, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2026, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2027,
-    vec![
-
-      (NaiveDate::from_ymd_res(2027, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2027, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2027, 3, 26)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2027, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2027, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2027, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2027, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2027, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2027, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2028,
-    vec![
-
-      (NaiveDate::from_ymd_res(2028, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2028, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2028, 4, 14)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2028, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2028, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2028, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2028, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2028, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2028, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2028, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2029,
-    vec![
-
-      (NaiveDate::from_ymd_res(2029, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2029, 1, 6)?, "Epifanía del Señor"),
-      (NaiveDate::from_ymd_res(2029, 3, 30)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2029, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2029, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2029, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2029, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2029, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2029, 12, 8)?, "Inmaculada Concepción"),
-      (NaiveDate::from_ymd_res(2029, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  build_year(
-    years,
-    2030,
-    vec![
-
-      (NaiveDate::from_ymd_res(2030, 1, 1)?, "Año Nuevo"),
-      (NaiveDate::from_ymd_res(2030, 4, 19)?, "Viernes Santo"),
-      (NaiveDate::from_ymd_res(2030, 5, 1)?, "Fiesta del Trabajo"),
-      (NaiveDate::from_ymd_res(2030, 8, 15)?, "Asunción de la Virgen"),
-      (NaiveDate::from_ymd_res(2030, 10, 12)?, "Fiesta Nacional de España"),
-      (NaiveDate::from_ymd_res(2030, 11, 1)?, "Todos los Santos"),
-      (NaiveDate::from_ymd_res(2030, 12, 6)?, "Día de la Constitución Española"),
-      (NaiveDate::from_ymd_res(2030, 12, 25)?, "Natividad del Señor"),
-    ],
-    &mut map,
-    Country::ES,
-    "Spain",
-  );
-
-  Ok(map)
+    Ok(map)
 }

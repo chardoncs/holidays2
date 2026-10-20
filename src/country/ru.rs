@@ -1,867 +1,1621 @@
-
 //! Russia
 use super::*;
 
 /// Generate holiday map for Russia.
 #[allow(unused_mut, unused_variables)]
-pub fn build(years: &Option<&std::ops::Range<Year>>) -> Result<HashMap<Year, BTreeMap<NaiveDate, Holiday>>> {
-  let mut map = HashMap::new();
+pub fn build(
+    years: &Option<&std::ops::Range<Year>>,
+) -> Result<HashMap<Year, BTreeMap<NaiveDate, Holiday>>> {
+    let mut map = HashMap::new();
 
-  build_year(
-    years,
-    2001,
-    vec![
+    build_year(
+        years,
+        2001,
+        vec![
+            (NaiveDate::from_ymd_res(2001, 1, 1)?, "Новый год"),
+            (NaiveDate::from_ymd_res(2001, 1, 2)?, "Новый год"),
+            (NaiveDate::from_ymd_res(2001, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2001, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 5, 2)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2001, 5, 9)?, "День Победы"),
+            (
+                NaiveDate::from_ymd_res(2001, 6, 12)?,
+                "День принятия Декларации о государственном суверенитете Российской Федерации",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 11, 7)?,
+                "День согласия и примирения",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 12, 12)?,
+                "День Конституции Российской Федерации",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 3, 9)?,
+                "Выходной (перенесено с 11.03.2001)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 4, 30)?,
+                "Выходной (перенесено с 28.04.2001)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 6, 11)?,
+                "Выходной (перенесено с 09.06.2001)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 12, 31)?,
+                "Выходной (перенесено с 29.12.2001)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2001, 1, 8)?,
+                "Рождество Христово (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2001, 1, 1)?, "Новый год"),
-      (NaiveDate::from_ymd_res(2001, 1, 2)?, "Новый год"),
-      (NaiveDate::from_ymd_res(2001, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2001, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2001, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2001, 5, 2)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2001, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2001, 6, 12)?, "День принятия Декларации о государственном суверенитете Российской Федерации"),
-      (NaiveDate::from_ymd_res(2001, 11, 7)?, "День согласия и примирения"),
-      (NaiveDate::from_ymd_res(2001, 12, 12)?, "День Конституции Российской Федерации"),
-      (NaiveDate::from_ymd_res(2001, 3, 9)?, "Выходной (перенесено с 11.03.2001)"),
-      (NaiveDate::from_ymd_res(2001, 4, 30)?, "Выходной (перенесено с 28.04.2001)"),
-      (NaiveDate::from_ymd_res(2001, 6, 11)?, "Выходной (перенесено с 09.06.2001)"),
-      (NaiveDate::from_ymd_res(2001, 12, 31)?, "Выходной (перенесено с 29.12.2001)"),
-      (NaiveDate::from_ymd_res(2001, 1, 8)?, "Рождество Христово (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2002,
+        vec![
+            (NaiveDate::from_ymd_res(2002, 1, 1)?, "Новый год"),
+            (NaiveDate::from_ymd_res(2002, 1, 2)?, "Новый год"),
+            (NaiveDate::from_ymd_res(2002, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2002, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 5, 2)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2002, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2002, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2002, 11, 7)?,
+                "День согласия и примирения",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 12, 12)?,
+                "День Конституции Российской Федерации",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 5, 3)?,
+                "Выходной (перенесено с 27.04.2002)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 5, 10)?,
+                "Выходной (перенесено с 18.05.2002)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 11, 8)?,
+                "Выходной (перенесено с 10.11.2002)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 12, 13)?,
+                "Выходной (перенесено с 15.12.2002)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2002, 2, 25)?,
+                "День защитника Отечества (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2002,
-    vec![
+    build_year(
+        years,
+        2003,
+        vec![
+            (NaiveDate::from_ymd_res(2003, 1, 1)?, "Новый год"),
+            (NaiveDate::from_ymd_res(2003, 1, 2)?, "Новый год"),
+            (NaiveDate::from_ymd_res(2003, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2003, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 5, 2)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2003, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2003, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2003, 11, 7)?,
+                "День согласия и примирения",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 12, 12)?,
+                "День Конституции Российской Федерации",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 1, 3)?,
+                "Выходной (перенесено с 04.01.2003)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 1, 6)?,
+                "Выходной (перенесено с 05.01.2003)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 6, 13)?,
+                "Выходной (перенесено с 21.06.2003)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 2, 24)?,
+                "День защитника Отечества (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2003, 3, 10)?,
+                "Международный женский день (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2002, 1, 1)?, "Новый год"),
-      (NaiveDate::from_ymd_res(2002, 1, 2)?, "Новый год"),
-      (NaiveDate::from_ymd_res(2002, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2002, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2002, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2002, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2002, 5, 2)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2002, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2002, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2002, 11, 7)?, "День согласия и примирения"),
-      (NaiveDate::from_ymd_res(2002, 12, 12)?, "День Конституции Российской Федерации"),
-      (NaiveDate::from_ymd_res(2002, 5, 3)?, "Выходной (перенесено с 27.04.2002)"),
-      (NaiveDate::from_ymd_res(2002, 5, 10)?, "Выходной (перенесено с 18.05.2002)"),
-      (NaiveDate::from_ymd_res(2002, 11, 8)?, "Выходной (перенесено с 10.11.2002)"),
-      (NaiveDate::from_ymd_res(2002, 12, 13)?, "Выходной (перенесено с 15.12.2002)"),
-      (NaiveDate::from_ymd_res(2002, 2, 25)?, "День защитника Отечества (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2004,
+        vec![
+            (NaiveDate::from_ymd_res(2004, 1, 1)?, "Новый год"),
+            (NaiveDate::from_ymd_res(2004, 1, 2)?, "Новый год"),
+            (NaiveDate::from_ymd_res(2004, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2004, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 5, 2)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2004, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2004, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2004, 11, 7)?,
+                "День согласия и примирения",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 12, 12)?,
+                "День Конституции Российской Федерации",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 5, 3)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 5, 4)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 5, 10)?,
+                "День Победы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 6, 14)?,
+                "День России (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 11, 8)?,
+                "День согласия и примирения (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2004, 12, 13)?,
+                "День Конституции Российской Федерации (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2003,
-    vec![
+    build_year(
+        years,
+        2005,
+        vec![
+            (NaiveDate::from_ymd_res(2005, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2005, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2005, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2005, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2005, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2005, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2005, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2005, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2005, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2005, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 3, 7)?,
+                "Выходной (перенесено с 05.03.2005)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 5, 10)?,
+                "Выходной (перенесено с 14.05.2005)",
+            ),
+            (NaiveDate::from_ymd_res(2005, 1, 6)?, "Новый год (выходной)"),
+            (
+                NaiveDate::from_ymd_res(2005, 1, 10)?,
+                "Новый год (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 5, 2)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2005, 6, 13)?,
+                "День России (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2003, 1, 1)?, "Новый год"),
-      (NaiveDate::from_ymd_res(2003, 1, 2)?, "Новый год"),
-      (NaiveDate::from_ymd_res(2003, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2003, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2003, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2003, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2003, 5, 2)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2003, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2003, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2003, 11, 7)?, "День согласия и примирения"),
-      (NaiveDate::from_ymd_res(2003, 12, 12)?, "День Конституции Российской Федерации"),
-      (NaiveDate::from_ymd_res(2003, 1, 3)?, "Выходной (перенесено с 04.01.2003)"),
-      (NaiveDate::from_ymd_res(2003, 1, 6)?, "Выходной (перенесено с 05.01.2003)"),
-      (NaiveDate::from_ymd_res(2003, 6, 13)?, "Выходной (перенесено с 21.06.2003)"),
-      (NaiveDate::from_ymd_res(2003, 2, 24)?, "День защитника Отечества (выходной)"),
-      (NaiveDate::from_ymd_res(2003, 3, 10)?, "Международный женский день (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2006,
+        vec![
+            (NaiveDate::from_ymd_res(2006, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2006, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2006, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2006, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2006, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2006, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2006, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2006, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2006, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2006, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 2, 24)?,
+                "Выходной (перенесено с 26.02.2006)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 5, 8)?,
+                "Выходной (перенесено с 06.05.2006)",
+            ),
+            (NaiveDate::from_ymd_res(2006, 1, 6)?, "Новый год (выходной)"),
+            (
+                NaiveDate::from_ymd_res(2006, 1, 9)?,
+                "Рождество Христово (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2006, 11, 6)?,
+                "День народного единства (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2004,
-    vec![
+    build_year(
+        years,
+        2007,
+        vec![
+            (NaiveDate::from_ymd_res(2007, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2007, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2007, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2007, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2007, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2007, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2007, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2007, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2007, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2007, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 4, 30)?,
+                "Выходной (перенесено с 28.04.2007)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 6, 11)?,
+                "Выходной (перенесено с 09.06.2007)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 12, 31)?,
+                "Выходной (перенесено с 29.12.2007)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 1, 8)?,
+                "Рождество Христово (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2007, 11, 5)?,
+                "День народного единства (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2004, 1, 1)?, "Новый год"),
-      (NaiveDate::from_ymd_res(2004, 1, 2)?, "Новый год"),
-      (NaiveDate::from_ymd_res(2004, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2004, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2004, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2004, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2004, 5, 2)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2004, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2004, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2004, 11, 7)?, "День согласия и примирения"),
-      (NaiveDate::from_ymd_res(2004, 12, 12)?, "День Конституции Российской Федерации"),
-      (NaiveDate::from_ymd_res(2004, 5, 3)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2004, 5, 4)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2004, 5, 10)?, "День Победы (выходной)"),
-      (NaiveDate::from_ymd_res(2004, 6, 14)?, "День России (выходной)"),
-      (NaiveDate::from_ymd_res(2004, 11, 8)?, "День согласия и примирения (выходной)"),
-      (NaiveDate::from_ymd_res(2004, 12, 13)?, "День Конституции Российской Федерации (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2008,
+        vec![
+            (NaiveDate::from_ymd_res(2008, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2008, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2008, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2008, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2008, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2008, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2008, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2008, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2008, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2008, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 5, 2)?,
+                "Выходной (перенесено с 04.05.2008)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 6, 13)?,
+                "Выходной (перенесено с 07.06.2008)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 11, 3)?,
+                "Выходной (перенесено с 01.11.2008)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 1, 8)?,
+                "Новогодние каникулы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 2, 25)?,
+                "День защитника Отечества (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2008, 3, 10)?,
+                "Международный женский день (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2005,
-    vec![
+    build_year(
+        years,
+        2009,
+        vec![
+            (NaiveDate::from_ymd_res(2009, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2009, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2009, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2009, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2009, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2009, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2009, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2009, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2009, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2009, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 1, 9)?,
+                "Выходной (перенесено с 11.01.2009)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 1, 6)?,
+                "Новогодние каникулы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 1, 8)?,
+                "Новогодние каникулы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 3, 9)?,
+                "Международный женский день (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2009, 5, 11)?,
+                "День Победы (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2005, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2005, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2005, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2005, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2005, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2005, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2005, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2005, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2005, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2005, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2005, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2005, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2005, 3, 7)?, "Выходной (перенесено с 05.03.2005)"),
-      (NaiveDate::from_ymd_res(2005, 5, 10)?, "Выходной (перенесено с 14.05.2005)"),
-      (NaiveDate::from_ymd_res(2005, 1, 6)?, "Новый год (выходной)"),
-      (NaiveDate::from_ymd_res(2005, 1, 10)?, "Новый год (выходной)"),
-      (NaiveDate::from_ymd_res(2005, 5, 2)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2005, 6, 13)?, "День России (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2010,
+        vec![
+            (NaiveDate::from_ymd_res(2010, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2010, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2010, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2010, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2010, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2010, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2010, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2010, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2010, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2010, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 2, 22)?,
+                "Выходной (перенесено с 27.02.2010)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 11, 5)?,
+                "Выходной (перенесено с 13.11.2010)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 1, 6)?,
+                "Новогодние каникулы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 1, 8)?,
+                "Новогодние каникулы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 5, 3)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 5, 10)?,
+                "День Победы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2010, 6, 14)?,
+                "День России (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2006,
-    vec![
+    build_year(
+        years,
+        2011,
+        vec![
+            (NaiveDate::from_ymd_res(2011, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2011, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2011, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2011, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2011, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2011, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2011, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2011, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2011, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2011, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 3, 7)?,
+                "Выходной (перенесено с 05.03.2011)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 1, 6)?,
+                "Новогодние каникулы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 1, 10)?,
+                "Новогодние каникулы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 5, 2)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2011, 6, 13)?,
+                "День России (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2006, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2006, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2006, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2006, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2006, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2006, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2006, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2006, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2006, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2006, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2006, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2006, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2006, 2, 24)?, "Выходной (перенесено с 26.02.2006)"),
-      (NaiveDate::from_ymd_res(2006, 5, 8)?, "Выходной (перенесено с 06.05.2006)"),
-      (NaiveDate::from_ymd_res(2006, 1, 6)?, "Новый год (выходной)"),
-      (NaiveDate::from_ymd_res(2006, 1, 9)?, "Рождество Христово (выходной)"),
-      (NaiveDate::from_ymd_res(2006, 11, 6)?, "День народного единства (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2012,
+        vec![
+            (NaiveDate::from_ymd_res(2012, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2012, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2012, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2012, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2012, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2012, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2012, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2012, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2012, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2012, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 3, 9)?,
+                "Выходной (перенесено с 11.03.2012)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 4, 30)?,
+                "Выходной (перенесено с 28.04.2012)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 5, 7)?,
+                "Выходной (перенесено с 05.05.2012)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 5, 8)?,
+                "Выходной (перенесено с 12.05.2012)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 6, 11)?,
+                "Выходной (перенесено с 09.06.2012)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 12, 31)?,
+                "Выходной (перенесено с 29.12.2012)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 1, 6)?,
+                "Новогодние каникулы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 1, 9)?,
+                "Рождество Христово (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2012, 11, 5)?,
+                "День народного единства (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2007,
-    vec![
+    build_year(
+        years,
+        2013,
+        vec![
+            (NaiveDate::from_ymd_res(2013, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2013, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2013, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2013, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2013, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2013, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2013, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2013, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2013, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2013, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2013, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2013, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 5, 2)?,
+                "Выходной (перенесено с 05.01.2013)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 5, 3)?,
+                "Выходной (перенесено с 06.01.2013)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2013, 5, 10)?,
+                "Выходной (перенесено с 23.02.2013)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2007, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2007, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2007, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2007, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2007, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2007, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2007, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2007, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2007, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2007, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2007, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2007, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2007, 4, 30)?, "Выходной (перенесено с 28.04.2007)"),
-      (NaiveDate::from_ymd_res(2007, 6, 11)?, "Выходной (перенесено с 09.06.2007)"),
-      (NaiveDate::from_ymd_res(2007, 12, 31)?, "Выходной (перенесено с 29.12.2007)"),
-      (NaiveDate::from_ymd_res(2007, 1, 8)?, "Рождество Христово (выходной)"),
-      (NaiveDate::from_ymd_res(2007, 11, 5)?, "День народного единства (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2014,
+        vec![
+            (NaiveDate::from_ymd_res(2014, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2014, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2014, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2014, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2014, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2014, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2014, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2014, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2014, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2014, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2014, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2014, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 5, 2)?,
+                "Выходной (перенесено с 04.01.2014)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 6, 13)?,
+                "Выходной (перенесено с 05.01.2014)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2014, 11, 3)?,
+                "Выходной (перенесено с 23.02.2014)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2008,
-    vec![
+    build_year(
+        years,
+        2015,
+        vec![
+            (NaiveDate::from_ymd_res(2015, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2015, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2015, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2015, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2015, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2015, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2015, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2015, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2015, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2015, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2015, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2015, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 1, 9)?,
+                "Выходной (перенесено с 03.01.2015)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 5, 4)?,
+                "Выходной (перенесено с 04.01.2015)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 3, 9)?,
+                "Международный женский день (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2015, 5, 11)?,
+                "День Победы (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2008, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2008, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2008, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2008, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2008, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2008, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2008, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2008, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2008, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2008, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2008, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2008, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2008, 5, 2)?, "Выходной (перенесено с 04.05.2008)"),
-      (NaiveDate::from_ymd_res(2008, 6, 13)?, "Выходной (перенесено с 07.06.2008)"),
-      (NaiveDate::from_ymd_res(2008, 11, 3)?, "Выходной (перенесено с 01.11.2008)"),
-      (NaiveDate::from_ymd_res(2008, 1, 8)?, "Новогодние каникулы (выходной)"),
-      (NaiveDate::from_ymd_res(2008, 2, 25)?, "День защитника Отечества (выходной)"),
-      (NaiveDate::from_ymd_res(2008, 3, 10)?, "Международный женский день (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2016,
+        vec![
+            (NaiveDate::from_ymd_res(2016, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2016, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2016, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2016, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2016, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2016, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2016, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2016, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2016, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2016, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2016, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2016, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 2, 22)?,
+                "Выходной (перенесено с 20.02.2016)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 3, 7)?,
+                "Выходной (перенесено с 02.01.2016)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 5, 3)?,
+                "Выходной (перенесено с 03.01.2016)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 5, 2)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2016, 6, 13)?,
+                "День России (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2009,
-    vec![
+    build_year(
+        years,
+        2017,
+        vec![
+            (NaiveDate::from_ymd_res(2017, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2017, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2017, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2017, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2017, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2017, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2017, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2017, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2017, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2017, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2017, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2017, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 2, 24)?,
+                "Выходной (перенесено с 01.01.2017)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 5, 8)?,
+                "Выходной (перенесено с 07.01.2017)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2017, 11, 6)?,
+                "День народного единства (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2009, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2009, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2009, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2009, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2009, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2009, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2009, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2009, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2009, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2009, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2009, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2009, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2009, 1, 9)?, "Выходной (перенесено с 11.01.2009)"),
-      (NaiveDate::from_ymd_res(2009, 1, 6)?, "Новогодние каникулы (выходной)"),
-      (NaiveDate::from_ymd_res(2009, 1, 8)?, "Новогодние каникулы (выходной)"),
-      (NaiveDate::from_ymd_res(2009, 3, 9)?, "Международный женский день (выходной)"),
-      (NaiveDate::from_ymd_res(2009, 5, 11)?, "День Победы (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2018,
+        vec![
+            (NaiveDate::from_ymd_res(2018, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2018, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2018, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2018, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2018, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2018, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2018, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2018, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2018, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2018, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2018, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2018, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 3, 9)?,
+                "Выходной (перенесено с 06.01.2018)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 4, 30)?,
+                "Выходной (перенесено с 28.04.2018)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 5, 2)?,
+                "Выходной (перенесено с 07.01.2018)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 6, 11)?,
+                "Выходной (перенесено с 09.06.2018)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 12, 31)?,
+                "Выходной (перенесено с 29.12.2018)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2018, 11, 5)?,
+                "День народного единства (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2010,
-    vec![
+    build_year(
+        years,
+        2019,
+        vec![
+            (NaiveDate::from_ymd_res(2019, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2019, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2019, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2019, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2019, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2019, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2019, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2019, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2019, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2019, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2019, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2019, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 5, 2)?,
+                "Выходной (перенесено с 05.01.2019)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 5, 3)?,
+                "Выходной (перенесено с 06.01.2019)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2019, 5, 10)?,
+                "Выходной (перенесено с 23.02.2019)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2010, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2010, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2010, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2010, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2010, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2010, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2010, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2010, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2010, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2010, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2010, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2010, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2010, 2, 22)?, "Выходной (перенесено с 27.02.2010)"),
-      (NaiveDate::from_ymd_res(2010, 11, 5)?, "Выходной (перенесено с 13.11.2010)"),
-      (NaiveDate::from_ymd_res(2010, 1, 6)?, "Новогодние каникулы (выходной)"),
-      (NaiveDate::from_ymd_res(2010, 1, 8)?, "Новогодние каникулы (выходной)"),
-      (NaiveDate::from_ymd_res(2010, 5, 3)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2010, 5, 10)?, "День Победы (выходной)"),
-      (NaiveDate::from_ymd_res(2010, 6, 14)?, "День России (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2020,
+        vec![
+            (NaiveDate::from_ymd_res(2020, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2020, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2020, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2020, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2020, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2020, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2020, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2020, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2020, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2020, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2020, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2020, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 5, 4)?,
+                "Выходной (перенесено с 04.01.2020)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 5, 5)?,
+                "Выходной (перенесено с 05.01.2020)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 2, 24)?,
+                "День защитника Отечества (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 3, 9)?,
+                "Международный женский день (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2020, 5, 11)?,
+                "День Победы (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2011,
-    vec![
+    build_year(
+        years,
+        2021,
+        vec![
+            (NaiveDate::from_ymd_res(2021, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2021, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2021, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2021, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2021, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2021, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2021, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2021, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2021, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2021, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2021, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2021, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 11, 5)?,
+                "Выходной (перенесено с 02.01.2021)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 2, 22)?,
+                "Выходной (перенесено с 20.02.2021)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 12, 31)?,
+                "Выходной (перенесено с 03.01.2021)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 5, 3)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 5, 10)?,
+                "День Победы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2021, 6, 14)?,
+                "День России (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2011, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2011, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2011, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2011, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2011, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2011, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2011, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2011, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2011, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2011, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2011, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2011, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2011, 3, 7)?, "Выходной (перенесено с 05.03.2011)"),
-      (NaiveDate::from_ymd_res(2011, 1, 6)?, "Новогодние каникулы (выходной)"),
-      (NaiveDate::from_ymd_res(2011, 1, 10)?, "Новогодние каникулы (выходной)"),
-      (NaiveDate::from_ymd_res(2011, 5, 2)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2011, 6, 13)?, "День России (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2022,
+        vec![
+            (NaiveDate::from_ymd_res(2022, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2022, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2022, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2022, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2022, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2022, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2022, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2022, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2022, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2022, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2022, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2022, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 3, 7)?,
+                "Выходной (перенесено с 05.03.2022)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 5, 3)?,
+                "Выходной (перенесено с 01.01.2022)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 5, 10)?,
+                "Выходной (перенесено с 02.01.2022)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 5, 2)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2022, 6, 13)?,
+                "День России (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2012,
-    vec![
+    build_year(
+        years,
+        2023,
+        vec![
+            (NaiveDate::from_ymd_res(2023, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2023, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2023, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2023, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2023, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2023, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2023, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2023, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2023, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2023, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2023, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2023, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 2, 24)?,
+                "Выходной (перенесено с 01.01.2023)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 5, 8)?,
+                "Выходной (перенесено с 08.01.2023)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2023, 11, 6)?,
+                "День народного единства (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2012, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2012, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2012, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2012, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2012, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2012, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2012, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2012, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2012, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2012, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2012, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2012, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2012, 3, 9)?, "Выходной (перенесено с 11.03.2012)"),
-      (NaiveDate::from_ymd_res(2012, 4, 30)?, "Выходной (перенесено с 28.04.2012)"),
-      (NaiveDate::from_ymd_res(2012, 5, 7)?, "Выходной (перенесено с 05.05.2012)"),
-      (NaiveDate::from_ymd_res(2012, 5, 8)?, "Выходной (перенесено с 12.05.2012)"),
-      (NaiveDate::from_ymd_res(2012, 6, 11)?, "Выходной (перенесено с 09.06.2012)"),
-      (NaiveDate::from_ymd_res(2012, 12, 31)?, "Выходной (перенесено с 29.12.2012)"),
-      (NaiveDate::from_ymd_res(2012, 1, 6)?, "Новогодние каникулы (выходной)"),
-      (NaiveDate::from_ymd_res(2012, 1, 9)?, "Рождество Христово (выходной)"),
-      (NaiveDate::from_ymd_res(2012, 11, 5)?, "День народного единства (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2024,
+        vec![
+            (NaiveDate::from_ymd_res(2024, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2024, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2024, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2024, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2024, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2024, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2024, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2024, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2024, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2024, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2024, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2024, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 4, 29)?,
+                "Выходной (перенесено с 27.04.2024)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 4, 30)?,
+                "Выходной (перенесено с 02.11.2024)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 5, 10)?,
+                "Выходной (перенесено с 06.01.2024)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 12, 30)?,
+                "Выходной (перенесено с 28.12.2024)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2024, 12, 31)?,
+                "Выходной (перенесено с 07.01.2024)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2013,
-    vec![
+    build_year(
+        years,
+        2025,
+        vec![
+            (NaiveDate::from_ymd_res(2025, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2025, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2025, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2025, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2025, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2025, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2025, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2025, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2025, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2025, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2025, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2025, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 5, 2)?,
+                "Выходной (перенесено с 04.01.2025)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 5, 8)?,
+                "Выходной (перенесено с 23.02.2025)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 6, 13)?,
+                "Выходной (перенесено с 08.03.2025)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 11, 3)?,
+                "Выходной (перенесено с 01.11.2025)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2025, 12, 31)?,
+                "Выходной (перенесено с 05.01.2025)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2013, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2013, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2013, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2013, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2013, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2013, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2013, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2013, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2013, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2013, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2013, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2013, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2013, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2013, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2013, 5, 2)?, "Выходной (перенесено с 05.01.2013)"),
-      (NaiveDate::from_ymd_res(2013, 5, 3)?, "Выходной (перенесено с 06.01.2013)"),
-      (NaiveDate::from_ymd_res(2013, 5, 10)?, "Выходной (перенесено с 23.02.2013)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2026,
+        vec![
+            (NaiveDate::from_ymd_res(2026, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2026, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2026, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2026, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2026, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2026, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2026, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2026, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2026, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2026, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2026, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2026, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 1, 9)?,
+                "Выходной (перенесено с 03.01.2026)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 12, 31)?,
+                "Выходной (перенесено с 04.01.2026)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 3, 9)?,
+                "Международный женский день (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2026, 5, 11)?,
+                "День Победы (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2014,
-    vec![
+    build_year(
+        years,
+        2027,
+        vec![
+            (NaiveDate::from_ymd_res(2027, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2027, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2027, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2027, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2027, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2027, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2027, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2027, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2027, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2027, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2027, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2027, 11, 4)?,
+                "День народного единства",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 2, 22)?,
+                "Выходной (перенесено с 20.02.2027)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 11, 5)?,
+                "Выходной (перенесено с 02.01.2027)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 12, 31)?,
+                "Выходной (перенесено с 03.01.2027)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 5, 3)?,
+                "Праздник Весны и Труда (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 5, 10)?,
+                "День Победы (выходной)",
+            ),
+            (
+                NaiveDate::from_ymd_res(2027, 6, 14)?,
+                "День России (выходной)",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2014, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2014, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2014, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2014, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2014, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2014, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2014, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2014, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2014, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2014, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2014, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2014, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2014, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2014, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2014, 5, 2)?, "Выходной (перенесено с 04.01.2014)"),
-      (NaiveDate::from_ymd_res(2014, 6, 13)?, "Выходной (перенесено с 05.01.2014)"),
-      (NaiveDate::from_ymd_res(2014, 11, 3)?, "Выходной (перенесено с 23.02.2014)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2028,
+        vec![
+            (NaiveDate::from_ymd_res(2028, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2028, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2028, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2028, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2028, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2028, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2028, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2028, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2028, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2028, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2028, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2028, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2028, 11, 4)?,
+                "День народного единства",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2015,
-    vec![
+    build_year(
+        years,
+        2029,
+        vec![
+            (NaiveDate::from_ymd_res(2029, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2029, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2029, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2029, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2029, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2029, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2029, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2029, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2029, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2029, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2029, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2029, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2029, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2029, 11, 4)?,
+                "День народного единства",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-      (NaiveDate::from_ymd_res(2015, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2015, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2015, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2015, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2015, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2015, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2015, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2015, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2015, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2015, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2015, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2015, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2015, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2015, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2015, 1, 9)?, "Выходной (перенесено с 03.01.2015)"),
-      (NaiveDate::from_ymd_res(2015, 5, 4)?, "Выходной (перенесено с 04.01.2015)"),
-      (NaiveDate::from_ymd_res(2015, 3, 9)?, "Международный женский день (выходной)"),
-      (NaiveDate::from_ymd_res(2015, 5, 11)?, "День Победы (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
+    build_year(
+        years,
+        2030,
+        vec![
+            (NaiveDate::from_ymd_res(2030, 1, 1)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2030, 1, 2)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2030, 1, 3)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2030, 1, 4)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2030, 1, 5)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2030, 1, 6)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2030, 1, 8)?, "Новогодние каникулы"),
+            (NaiveDate::from_ymd_res(2030, 1, 7)?, "Рождество Христово"),
+            (
+                NaiveDate::from_ymd_res(2030, 2, 23)?,
+                "День защитника Отечества",
+            ),
+            (
+                NaiveDate::from_ymd_res(2030, 3, 8)?,
+                "Международный женский день",
+            ),
+            (
+                NaiveDate::from_ymd_res(2030, 5, 1)?,
+                "Праздник Весны и Труда",
+            ),
+            (NaiveDate::from_ymd_res(2030, 5, 9)?, "День Победы"),
+            (NaiveDate::from_ymd_res(2030, 6, 12)?, "День России"),
+            (
+                NaiveDate::from_ymd_res(2030, 11, 4)?,
+                "День народного единства",
+            ),
+        ],
+        &mut map,
+        Country::RU,
+        "Russia",
+    );
 
-  build_year(
-    years,
-    2016,
-    vec![
-
-      (NaiveDate::from_ymd_res(2016, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2016, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2016, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2016, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2016, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2016, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2016, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2016, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2016, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2016, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2016, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2016, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2016, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2016, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2016, 2, 22)?, "Выходной (перенесено с 20.02.2016)"),
-      (NaiveDate::from_ymd_res(2016, 3, 7)?, "Выходной (перенесено с 02.01.2016)"),
-      (NaiveDate::from_ymd_res(2016, 5, 3)?, "Выходной (перенесено с 03.01.2016)"),
-      (NaiveDate::from_ymd_res(2016, 5, 2)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2016, 6, 13)?, "День России (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2017,
-    vec![
-
-      (NaiveDate::from_ymd_res(2017, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2017, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2017, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2017, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2017, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2017, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2017, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2017, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2017, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2017, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2017, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2017, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2017, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2017, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2017, 2, 24)?, "Выходной (перенесено с 01.01.2017)"),
-      (NaiveDate::from_ymd_res(2017, 5, 8)?, "Выходной (перенесено с 07.01.2017)"),
-      (NaiveDate::from_ymd_res(2017, 11, 6)?, "День народного единства (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2018,
-    vec![
-
-      (NaiveDate::from_ymd_res(2018, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2018, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2018, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2018, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2018, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2018, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2018, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2018, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2018, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2018, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2018, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2018, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2018, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2018, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2018, 3, 9)?, "Выходной (перенесено с 06.01.2018)"),
-      (NaiveDate::from_ymd_res(2018, 4, 30)?, "Выходной (перенесено с 28.04.2018)"),
-      (NaiveDate::from_ymd_res(2018, 5, 2)?, "Выходной (перенесено с 07.01.2018)"),
-      (NaiveDate::from_ymd_res(2018, 6, 11)?, "Выходной (перенесено с 09.06.2018)"),
-      (NaiveDate::from_ymd_res(2018, 12, 31)?, "Выходной (перенесено с 29.12.2018)"),
-      (NaiveDate::from_ymd_res(2018, 11, 5)?, "День народного единства (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2019,
-    vec![
-
-      (NaiveDate::from_ymd_res(2019, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2019, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2019, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2019, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2019, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2019, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2019, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2019, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2019, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2019, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2019, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2019, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2019, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2019, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2019, 5, 2)?, "Выходной (перенесено с 05.01.2019)"),
-      (NaiveDate::from_ymd_res(2019, 5, 3)?, "Выходной (перенесено с 06.01.2019)"),
-      (NaiveDate::from_ymd_res(2019, 5, 10)?, "Выходной (перенесено с 23.02.2019)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2020,
-    vec![
-
-      (NaiveDate::from_ymd_res(2020, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2020, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2020, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2020, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2020, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2020, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2020, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2020, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2020, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2020, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2020, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2020, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2020, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2020, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2020, 5, 4)?, "Выходной (перенесено с 04.01.2020)"),
-      (NaiveDate::from_ymd_res(2020, 5, 5)?, "Выходной (перенесено с 05.01.2020)"),
-      (NaiveDate::from_ymd_res(2020, 2, 24)?, "День защитника Отечества (выходной)"),
-      (NaiveDate::from_ymd_res(2020, 3, 9)?, "Международный женский день (выходной)"),
-      (NaiveDate::from_ymd_res(2020, 5, 11)?, "День Победы (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2021,
-    vec![
-
-      (NaiveDate::from_ymd_res(2021, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2021, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2021, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2021, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2021, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2021, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2021, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2021, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2021, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2021, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2021, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2021, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2021, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2021, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2021, 11, 5)?, "Выходной (перенесено с 02.01.2021)"),
-      (NaiveDate::from_ymd_res(2021, 2, 22)?, "Выходной (перенесено с 20.02.2021)"),
-      (NaiveDate::from_ymd_res(2021, 12, 31)?, "Выходной (перенесено с 03.01.2021)"),
-      (NaiveDate::from_ymd_res(2021, 5, 3)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2021, 5, 10)?, "День Победы (выходной)"),
-      (NaiveDate::from_ymd_res(2021, 6, 14)?, "День России (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2022,
-    vec![
-
-      (NaiveDate::from_ymd_res(2022, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2022, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2022, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2022, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2022, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2022, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2022, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2022, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2022, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2022, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2022, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2022, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2022, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2022, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2022, 3, 7)?, "Выходной (перенесено с 05.03.2022)"),
-      (NaiveDate::from_ymd_res(2022, 5, 3)?, "Выходной (перенесено с 01.01.2022)"),
-      (NaiveDate::from_ymd_res(2022, 5, 10)?, "Выходной (перенесено с 02.01.2022)"),
-      (NaiveDate::from_ymd_res(2022, 5, 2)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2022, 6, 13)?, "День России (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2023,
-    vec![
-
-      (NaiveDate::from_ymd_res(2023, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2023, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2023, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2023, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2023, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2023, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2023, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2023, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2023, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2023, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2023, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2023, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2023, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2023, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2023, 2, 24)?, "Выходной (перенесено с 01.01.2023)"),
-      (NaiveDate::from_ymd_res(2023, 5, 8)?, "Выходной (перенесено с 08.01.2023)"),
-      (NaiveDate::from_ymd_res(2023, 11, 6)?, "День народного единства (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2024,
-    vec![
-
-      (NaiveDate::from_ymd_res(2024, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2024, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2024, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2024, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2024, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2024, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2024, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2024, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2024, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2024, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2024, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2024, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2024, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2024, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2024, 4, 29)?, "Выходной (перенесено с 27.04.2024)"),
-      (NaiveDate::from_ymd_res(2024, 4, 30)?, "Выходной (перенесено с 02.11.2024)"),
-      (NaiveDate::from_ymd_res(2024, 5, 10)?, "Выходной (перенесено с 06.01.2024)"),
-      (NaiveDate::from_ymd_res(2024, 12, 30)?, "Выходной (перенесено с 28.12.2024)"),
-      (NaiveDate::from_ymd_res(2024, 12, 31)?, "Выходной (перенесено с 07.01.2024)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2025,
-    vec![
-
-      (NaiveDate::from_ymd_res(2025, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2025, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2025, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2025, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2025, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2025, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2025, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2025, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2025, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2025, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2025, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2025, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2025, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2025, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2025, 5, 2)?, "Выходной (перенесено с 04.01.2025)"),
-      (NaiveDate::from_ymd_res(2025, 5, 8)?, "Выходной (перенесено с 23.02.2025)"),
-      (NaiveDate::from_ymd_res(2025, 6, 13)?, "Выходной (перенесено с 08.03.2025)"),
-      (NaiveDate::from_ymd_res(2025, 11, 3)?, "Выходной (перенесено с 01.11.2025)"),
-      (NaiveDate::from_ymd_res(2025, 12, 31)?, "Выходной (перенесено с 05.01.2025)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2026,
-    vec![
-
-      (NaiveDate::from_ymd_res(2026, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2026, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2026, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2026, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2026, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2026, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2026, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2026, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2026, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2026, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2026, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2026, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2026, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2026, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2026, 1, 9)?, "Выходной (перенесено с 03.01.2026)"),
-      (NaiveDate::from_ymd_res(2026, 12, 31)?, "Выходной (перенесено с 04.01.2026)"),
-      (NaiveDate::from_ymd_res(2026, 3, 9)?, "Международный женский день (выходной)"),
-      (NaiveDate::from_ymd_res(2026, 5, 11)?, "День Победы (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2027,
-    vec![
-
-      (NaiveDate::from_ymd_res(2027, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2027, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2027, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2027, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2027, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2027, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2027, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2027, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2027, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2027, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2027, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2027, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2027, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2027, 11, 4)?, "День народного единства"),
-      (NaiveDate::from_ymd_res(2027, 2, 22)?, "Выходной (перенесено с 20.02.2027)"),
-      (NaiveDate::from_ymd_res(2027, 11, 5)?, "Выходной (перенесено с 02.01.2027)"),
-      (NaiveDate::from_ymd_res(2027, 12, 31)?, "Выходной (перенесено с 03.01.2027)"),
-      (NaiveDate::from_ymd_res(2027, 5, 3)?, "Праздник Весны и Труда (выходной)"),
-      (NaiveDate::from_ymd_res(2027, 5, 10)?, "День Победы (выходной)"),
-      (NaiveDate::from_ymd_res(2027, 6, 14)?, "День России (выходной)"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2028,
-    vec![
-
-      (NaiveDate::from_ymd_res(2028, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2028, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2028, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2028, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2028, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2028, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2028, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2028, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2028, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2028, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2028, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2028, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2028, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2028, 11, 4)?, "День народного единства"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2029,
-    vec![
-
-      (NaiveDate::from_ymd_res(2029, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2029, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2029, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2029, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2029, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2029, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2029, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2029, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2029, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2029, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2029, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2029, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2029, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2029, 11, 4)?, "День народного единства"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  build_year(
-    years,
-    2030,
-    vec![
-
-      (NaiveDate::from_ymd_res(2030, 1, 1)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2030, 1, 2)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2030, 1, 3)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2030, 1, 4)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2030, 1, 5)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2030, 1, 6)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2030, 1, 8)?, "Новогодние каникулы"),
-      (NaiveDate::from_ymd_res(2030, 1, 7)?, "Рождество Христово"),
-      (NaiveDate::from_ymd_res(2030, 2, 23)?, "День защитника Отечества"),
-      (NaiveDate::from_ymd_res(2030, 3, 8)?, "Международный женский день"),
-      (NaiveDate::from_ymd_res(2030, 5, 1)?, "Праздник Весны и Труда"),
-      (NaiveDate::from_ymd_res(2030, 5, 9)?, "День Победы"),
-      (NaiveDate::from_ymd_res(2030, 6, 12)?, "День России"),
-      (NaiveDate::from_ymd_res(2030, 11, 4)?, "День народного единства"),
-    ],
-    &mut map,
-    Country::RU,
-    "Russia",
-  );
-
-  Ok(map)
+    Ok(map)
 }
