@@ -1,911 +1,908 @@
+
 //! Bangladesh
 use super::*;
 
 /// Generate holiday map for Bangladesh.
 #[allow(unused_mut, unused_variables)]
-pub fn build(
-    years: &Option<&std::ops::Range<Year>>,
-) -> Result<HashMap<Year, BTreeMap<NaiveDate, Holiday>>> {
-    let mut map = HashMap::new();
+pub fn build(years: &Option<&std::ops::Range<Year>>) -> Result<HashMap<Year, BTreeMap<NaiveDate, Holiday>>> {
+  let mut map = HashMap::new();
 
-    build_year(
-        years,
-        2000,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2000, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2000, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2000, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2000, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2000, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2000, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2000, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2001,
+    vec![
 
-    build_year(
-        years,
-        2001,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2001, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2001, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2001, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2001, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2001, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2001, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2001, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2001, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2001, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2001, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2001, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2001, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2001, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2001, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2001, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2001, 4, 5)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 6, 5)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 11, 1)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 12, 13)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 12, 14)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 12, 17)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 12, 18)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 12, 19)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 3, 6)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 3, 7)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2001, 3, 8)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2002,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2002, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2002, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2002, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2002, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2002, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2002, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2002, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2002,
+    vec![
 
-    build_year(
-        years,
-        2003,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2003, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2003, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2003, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2003, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2003, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2003, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2003, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2002, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2002, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2002, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2002, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2002, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2002, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2002, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2002, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2002, 3, 25)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 5, 25)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 10, 22)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 12, 3)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 11, 29)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 12, 6)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 12, 7)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 12, 8)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 2, 23)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 2, 24)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2002, 2, 25)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2004,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2004, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2004, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2004, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2004, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2004, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2004, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2004, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2003,
+    vec![
 
-    build_year(
-        years,
-        2005,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2005, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2005, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2005, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2005, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2005, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2005, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2005, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2003, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2003, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2003, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2003, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2003, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2003, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2003, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2003, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2003, 3, 14)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 5, 14)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 10, 12)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 11, 22)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 11, 21)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 11, 26)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 11, 27)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 11, 28)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 2, 12)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 2, 13)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2003, 2, 14)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2006,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2006, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2006, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2006, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2006, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2006, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2006, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2006, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2004,
+    vec![
 
-    build_year(
-        years,
-        2007,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2007, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2007, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2007, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2007, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2007, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2007, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2007, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2004, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2004, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2004, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2004, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2004, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2004, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2004, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2004, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2004, 3, 2)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 5, 2)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 9, 30)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 11, 11)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 11, 12)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 11, 15)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 11, 16)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 11, 17)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 2, 2)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 2, 3)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2004, 2, 4)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2008,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2008, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2008, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2008, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2008, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2008, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2008, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2008, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2005,
+    vec![
 
-    build_year(
-        years,
-        2009,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2009, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2009, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2009, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2009, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2009, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2009, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2009, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2005, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2005, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2005, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2005, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2005, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2005, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2005, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2005, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2005, 2, 20)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 4, 22)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 9, 20)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 10, 31)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 10, 28)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 11, 4)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 11, 5)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 11, 6)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 1, 22)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 1, 23)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2005, 1, 24)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2010,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2010, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2010, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2010, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2010, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2010, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2010, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2010, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2006,
+    vec![
 
-    build_year(
-        years,
-        2011,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2011, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2011, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2011, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2011, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2011, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2011, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2011, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2006, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2006, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2006, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2006, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2006, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2006, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2006, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2006, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2006, 2, 10)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 4, 11)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 9, 9)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 10, 21)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 10, 20)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 10, 24)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 10, 25)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 10, 26)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 1, 11)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 1, 12)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2006, 1, 13)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2012,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2012, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2012, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2012, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2012, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2012, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2012, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2012, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2007,
+    vec![
 
-    build_year(
-        years,
-        2013,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2013, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2013, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2013, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2013, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2013, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2013, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2013, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2007, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2007, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2007, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2007, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2007, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2007, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2007, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2007, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2007, 1, 30)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 4, 1)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 8, 29)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 10, 10)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 10, 12)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 10, 14)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 10, 15)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 10, 16)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 1, 1)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 12, 21)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 1, 2)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 12, 22)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 1, 3)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2007, 12, 23)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2014,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2014, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2014, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2014, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2014, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2014, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2014, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2014, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2008,
+    vec![
 
-    build_year(
-        years,
-        2015,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2015, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2015, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2015, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2015, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2015, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2015, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2015, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2008, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2008, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2008, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2008, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2008, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2008, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2008, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2008, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2008, 1, 20)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 3, 21)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 8, 17)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 9, 28)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 9, 26)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 10, 2)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 10, 3)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 10, 4)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 12, 9)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 12, 10)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2008, 12, 11)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2016,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2016, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2016, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2016, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2016, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2016, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2016, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2016, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2009,
+    vec![
 
-    build_year(
-        years,
-        2017,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2017, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2017, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2017, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2017, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2017, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2017, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2017, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2009, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2009, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2009, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2009, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2009, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2009, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2009, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2009, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2009, 1, 8)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 12, 28)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 3, 10)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 8, 7)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 9, 18)?, "জুমাতুল বিদা (আনুমানিক); শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 9, 21)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 9, 22)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 9, 23)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 11, 28)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 11, 29)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2009, 11, 30)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2018,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2018, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2018, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2018, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2018, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2018, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2018, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2018, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2010,
+    vec![
 
-    build_year(
-        years,
-        2019,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2019, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2019, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2019, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2019, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2019, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2019, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2019, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2010, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2010, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2010, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2010, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2010, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2010, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2010, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2010, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2010, 12, 17)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 2, 27)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 7, 28)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 9, 7)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 9, 3)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 9, 11)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 9, 12)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 9, 13)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 11, 17)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 11, 18)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2010, 11, 19)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2020,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2020, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2020, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2020, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2020, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2020, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2020, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2020, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2011,
+    vec![
 
-    build_year(
-        years,
-        2021,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2021, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2021, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2021, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2021, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2021, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2021, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2021, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2011, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2011, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2011, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2011, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2011, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2011, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2011, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2011, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2011, 12, 6)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 2, 16)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 7, 17)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 8, 28)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 8, 26)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 8, 31)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 9, 1)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 9, 2)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 11, 7)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 11, 8)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2011, 11, 9)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2022,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2022, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2022, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2022, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2022, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2022, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2022, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2022, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2012,
+    vec![
 
-    build_year(
-        years,
-        2023,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2023, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2023, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2023, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2023, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2023, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2023, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2023, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2012, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2012, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2012, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2012, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2012, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2012, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2012, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2012, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2012, 11, 25)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 2, 5)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 7, 6)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 8, 16)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 8, 17)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 8, 20)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 8, 21)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 8, 22)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 10, 27)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 10, 28)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2012, 10, 29)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2024,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2024, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2024, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2024, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2024, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2024, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2024, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2024, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2013,
+    vec![
 
-    build_year(
-        years,
-        2025,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2025, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2025, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2025, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2025, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2025, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2025, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2025, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2013, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2013, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2013, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2013, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2013, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2013, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2013, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2013, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2013, 11, 14)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 1, 25)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 6, 25)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 8, 5)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 8, 2)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 8, 9)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 8, 10)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 8, 11)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 10, 16)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 10, 17)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2013, 10, 18)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2026,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2026, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2026, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2026, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2026, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2026, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2026, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2026, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2014,
+    vec![
 
-    build_year(
-        years,
-        2027,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2027, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2027, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2027, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2027, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2027, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2027, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2027, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2014, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2014, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2014, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2014, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2014, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2014, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2014, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2014, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2014, 11, 4)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 1, 14)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 6, 14)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 7, 25)?, "জুমাতুল বিদা (আনুমানিক); শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 7, 29)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 7, 30)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 7, 31)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 10, 5)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 10, 6)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2014, 10, 7)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2028,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2028, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2028, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2028, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2028, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2028, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2028, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2028, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2015,
+    vec![
 
-    build_year(
-        years,
-        2029,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2029, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2029, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2029, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2029, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2029, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2029, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2029, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+      (NaiveDate::from_ymd_res(2015, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2015, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2015, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2015, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2015, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2015, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2015, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2015, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2015, 10, 24)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 1, 4)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 12, 24)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 6, 3)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 7, 15)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 7, 10)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 7, 18)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 7, 19)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 7, 20)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 9, 24)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 9, 25)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2015, 9, 26)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
 
-    build_year(
-        years,
-        2030,
-        vec![
-            (
-                NaiveDate::from_ymd_res(2030, 2, 21)?,
-                "International Mother's language Day",
-            ),
-            (
-                NaiveDate::from_ymd_res(2030, 3, 17)?,
-                "Sheikh Mujibur Rahman's Birthday and Children's Day",
-            ),
-            (NaiveDate::from_ymd_res(2030, 3, 26)?, "Independence Day"),
-            (
-                NaiveDate::from_ymd_res(2030, 4, 14)?,
-                "Bengali New Year's Day",
-            ),
-            (NaiveDate::from_ymd_res(2030, 5, 1)?, "May Day"),
-            (
-                NaiveDate::from_ymd_res(2030, 8, 15)?,
-                "National Mourning Day",
-            ),
-            (NaiveDate::from_ymd_res(2030, 12, 16)?, "Victory Day"),
-        ],
-        &mut map,
-        Country::BD,
-        "Bangladesh",
-    );
+  build_year(
+    years,
+    2016,
+    vec![
 
-    Ok(map)
+      (NaiveDate::from_ymd_res(2016, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2016, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2016, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2016, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2016, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2016, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2016, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2016, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2016, 10, 12)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 12, 12)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 5, 23)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 7, 3)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 7, 1)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 7, 7)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 7, 8)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 7, 9)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 9, 12)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 9, 13)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2016, 9, 14)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2017,
+    vec![
+
+      (NaiveDate::from_ymd_res(2017, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2017, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2017, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2017, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2017, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2017, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2017, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2017, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2017, 10, 1)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 12, 1)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 5, 12)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 6, 23)?, "জুমাতুল বিদা (আনুমানিক); শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 6, 26)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 6, 27)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 6, 28)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 9, 2)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 9, 3)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2017, 9, 4)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2018,
+    vec![
+
+      (NaiveDate::from_ymd_res(2018, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2018, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2018, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2018, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2018, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2018, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2018, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2018, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2018, 9, 21)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 11, 21)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 5, 2)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 6, 12)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 6, 8)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 6, 16)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 6, 17)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 6, 18)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 8, 22)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 8, 23)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2018, 8, 24)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2019,
+    vec![
+
+      (NaiveDate::from_ymd_res(2019, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2019, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2019, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2019, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2019, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2019, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2019, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2019, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2019, 9, 10)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 11, 10)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 4, 21)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 6, 2)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 5, 31)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 6, 5)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 6, 6)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 6, 7)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 8, 12)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 8, 13)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2019, 8, 14)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2020,
+    vec![
+
+      (NaiveDate::from_ymd_res(2020, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2020, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2020, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2020, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2020, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2020, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2020, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2020, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2020, 8, 30)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 10, 30)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 4, 9)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 5, 21)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 5, 22)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 5, 25)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 5, 26)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 5, 27)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 8, 1)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 8, 2)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2020, 8, 3)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2021,
+    vec![
+
+      (NaiveDate::from_ymd_res(2021, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2021, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2021, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2021, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2021, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2021, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2021, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2021, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2021, 8, 19)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 10, 19)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 3, 29)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 5, 10)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 5, 7)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 5, 14)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 5, 15)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 5, 16)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 7, 21)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 7, 22)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2021, 7, 23)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2022,
+    vec![
+
+      (NaiveDate::from_ymd_res(2022, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2022, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2022, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2022, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2022, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2022, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2022, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2022, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2022, 8, 9)?, "আশুরা"),
+      (NaiveDate::from_ymd_res(2022, 10, 9)?, "ঈদে মিলাদুন্নবী"),
+      (NaiveDate::from_ymd_res(2022, 3, 19)?, "শবে বরাত"),
+      (NaiveDate::from_ymd_res(2022, 4, 29)?, "জুমাতুল বিদা; শবে কদর"),
+      (NaiveDate::from_ymd_res(2022, 5, 3)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2022, 5, 4)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2022, 5, 5)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2022, 7, 10)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2022, 7, 11)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2022, 7, 12)?, "ঈদুল আজহা"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2023,
+    vec![
+
+      (NaiveDate::from_ymd_res(2023, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2023, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2023, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2023, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2023, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2023, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2023, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2023, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2023, 7, 29)?, "আশুরা"),
+      (NaiveDate::from_ymd_res(2023, 9, 28)?, "ঈদে মিলাদুন্নবী"),
+      (NaiveDate::from_ymd_res(2023, 3, 8)?, "শবে বরাত"),
+      (NaiveDate::from_ymd_res(2023, 4, 19)?, "শবে কদর"),
+      (NaiveDate::from_ymd_res(2023, 4, 21)?, "জুমাতুল বিদা"),
+      (NaiveDate::from_ymd_res(2023, 4, 22)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2023, 4, 23)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2023, 4, 24)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2023, 6, 29)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2023, 6, 30)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2023, 7, 1)?, "ঈদুল আজহা"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2024,
+    vec![
+
+      (NaiveDate::from_ymd_res(2024, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2024, 3, 17)?, "জাতির পিতা বঙ্গবন্ধু শেখ মুজিবুর রহমান এর জন্মদিবস"),
+      (NaiveDate::from_ymd_res(2024, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2024, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2024, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2024, 8, 15)?, "জাতীয় শোক দিবস"),
+      (NaiveDate::from_ymd_res(2024, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2024, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2024, 7, 17)?, "আশুরা"),
+      (NaiveDate::from_ymd_res(2024, 9, 16)?, "ঈদে মিলাদুন্নবী"),
+      (NaiveDate::from_ymd_res(2024, 2, 26)?, "শবে বরাত"),
+      (NaiveDate::from_ymd_res(2024, 4, 7)?, "শবে কদর"),
+      (NaiveDate::from_ymd_res(2024, 4, 5)?, "জুমাতুল বিদা"),
+      (NaiveDate::from_ymd_res(2024, 4, 10)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2024, 4, 11)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2024, 4, 12)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2024, 6, 17)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2024, 6, 18)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2024, 6, 19)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2024, 1, 7)?, "সাধারণ ছুটি"),
+      (NaiveDate::from_ymd_res(2024, 8, 5)?, "সাধারণ ছুটি"),
+      (NaiveDate::from_ymd_res(2024, 8, 6)?, "সাধারণ ছুটি"),
+      (NaiveDate::from_ymd_res(2024, 8, 7)?, "সাধারণ ছুটি"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2025,
+    vec![
+
+      (NaiveDate::from_ymd_res(2025, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2025, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2025, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2025, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2025, 8, 5)?, "জুলাই গণ-অভ্যুত্থান দিবস"),
+      (NaiveDate::from_ymd_res(2025, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2025, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2025, 7, 6)?, "আশুরা"),
+      (NaiveDate::from_ymd_res(2025, 9, 6)?, "ঈদে মিলাদুন্নবী"),
+      (NaiveDate::from_ymd_res(2025, 2, 15)?, "শবে বরাত"),
+      (NaiveDate::from_ymd_res(2025, 3, 28)?, "জুমাতুল বিদা; শবে কদর"),
+      (NaiveDate::from_ymd_res(2025, 3, 31)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2025, 4, 1)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2025, 4, 2)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2025, 6, 7)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2025, 6, 8)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2025, 6, 9)?, "ঈদুল আজহা"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2026,
+    vec![
+
+      (NaiveDate::from_ymd_res(2026, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2026, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2026, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2026, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2026, 8, 5)?, "জুলাই গণ-অভ্যুত্থান দিবস"),
+      (NaiveDate::from_ymd_res(2026, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2026, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2026, 6, 26)?, "আশুরা"),
+      (NaiveDate::from_ymd_res(2026, 8, 26)?, "ঈদে মিলাদুন্নবী"),
+      (NaiveDate::from_ymd_res(2026, 2, 4)?, "শবে বরাত"),
+      (NaiveDate::from_ymd_res(2026, 3, 17)?, "শবে কদর"),
+      (NaiveDate::from_ymd_res(2026, 3, 20)?, "জুমাতুল বিদা"),
+      (NaiveDate::from_ymd_res(2026, 3, 21)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2026, 3, 22)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2026, 3, 23)?, "ঈদুল ফিতর"),
+      (NaiveDate::from_ymd_res(2026, 5, 28)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2026, 5, 29)?, "ঈদুল আজহা"),
+      (NaiveDate::from_ymd_res(2026, 5, 30)?, "ঈদুল আজহা"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2027,
+    vec![
+
+      (NaiveDate::from_ymd_res(2027, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2027, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2027, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2027, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2027, 8, 5)?, "জুলাই গণ-অভ্যুত্থান দিবস"),
+      (NaiveDate::from_ymd_res(2027, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2027, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2027, 6, 16)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 8, 15)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 1, 24)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 3, 7)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 3, 5)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 3, 10)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 3, 11)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 3, 12)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 5, 17)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 5, 18)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2027, 5, 19)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2028,
+    vec![
+
+      (NaiveDate::from_ymd_res(2028, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2028, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2028, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2028, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2028, 8, 5)?, "জুলাই গণ-অভ্যুত্থান দিবস"),
+      (NaiveDate::from_ymd_res(2028, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2028, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2028, 6, 4)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 8, 4)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 1, 13)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 2, 24)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 2, 25)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 2, 27)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 2, 28)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 2, 29)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 5, 6)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 5, 7)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2028, 5, 8)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2029,
+    vec![
+
+      (NaiveDate::from_ymd_res(2029, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2029, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2029, 4, 14)?, "পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2029, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2029, 8, 5)?, "জুলাই গণ-অভ্যুত্থান দিবস"),
+      (NaiveDate::from_ymd_res(2029, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2029, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2029, 5, 24)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 7, 25)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 1, 1)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 12, 22)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 2, 12)?, "শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 2, 9)?, "জুমাতুল বিদা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 2, 15)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 2, 16)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 2, 17)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 4, 25)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 4, 26)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2029, 4, 27)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  build_year(
+    years,
+    2030,
+    vec![
+
+      (NaiveDate::from_ymd_res(2030, 2, 21)?, "শহীদ দিবস ও আন্তর্জাতিক মাতৃভাষা দিবস"),
+      (NaiveDate::from_ymd_res(2030, 3, 26)?, "স্বাধীনতা দিবস"),
+      (NaiveDate::from_ymd_res(2030, 4, 14)?, "ঈদুল আজহা (আনুমানিক); পহেলা বৈশাখ"),
+      (NaiveDate::from_ymd_res(2030, 5, 1)?, "মে দিবস"),
+      (NaiveDate::from_ymd_res(2030, 8, 5)?, "জুলাই গণ-অভ্যুত্থান দিবস"),
+      (NaiveDate::from_ymd_res(2030, 12, 16)?, "বিজয় দিবস"),
+      (NaiveDate::from_ymd_res(2030, 12, 25)?, "বড়দিন"),
+      (NaiveDate::from_ymd_res(2030, 5, 13)?, "আশুরা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2030, 7, 14)?, "ঈদে মিলাদুন্নবী (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2030, 12, 11)?, "শবে বরাত (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2030, 2, 1)?, "জুমাতুল বিদা (আনুমানিক); শবে কদর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2030, 2, 5)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2030, 2, 6)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2030, 2, 7)?, "ঈদুল ফিতর (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2030, 4, 15)?, "ঈদুল আজহা (আনুমানিক)"),
+      (NaiveDate::from_ymd_res(2030, 4, 16)?, "ঈদুল আজহা (আনুমানিক)"),
+    ],
+    &mut map,
+    Country::BD,
+    "Bangladesh",
+  );
+
+  Ok(map)
 }
