@@ -15,7 +15,7 @@ Rust library to provide accurate and up-to-date holiday dates based on Python ho
 
 > [!NOTE]
 >
-> This is a hard fork of the unmaintained [holidays-rs](https://github.com/mapbox-jp/holidays-rs).
+> This is a hard fork and rewrite of the unmaintained [holidays-rs](https://github.com/mapbox-jp/holidays-rs).
 
 ## Design
 [python-holidays](https://github.com/dr-prodigy/python-holidays) is a well maintained package to generate holidays dynamically. This crate is on the other hand, rather than porting `python-holidays` into Rust, statically generates the Rust code of holidays by the script using `python-holidays`. Since the holiday database of this crate boils down to a thread-safe `HashMap` (There is an option for single thread use case) in Rust, it's ultra fast and flexible to use in most of the cases.
