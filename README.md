@@ -2,14 +2,11 @@
 <p align="center">
 Rust library to provide accurate and up-to-date holiday dates based on Python holidays package</p>
 <p align="center">
-  <a href="https://crates.io/crates/holidays">
-    <img alt="Crates.io" src="https://img.shields.io/crates/v/holidays.svg">
+  <a href="https://crates.io/crates/holidays2">
+    <img alt="Crates.io" src="https://img.shields.io/crates/v/holidays2.svg">
   </a>
-  <a href="https://docs.rs/holidays/latest/holidays/">
-    <img alt="Docs.rs" src="https://img.shields.io/badge/docs.rs-holidays-blue">
-  </a>
-  <a href="https://github.com/mapbox-jp/holidays-rs/actions/workflows/test.yml">
-    <img alt="GithubActions" src="https://github.com/mapbox-jp/holidays-rs/actions/workflows/test.yml/badge.svg">
+  <a href="https://docs.rs/holidays2/latest/holidays2/">
+    <img alt="Docs.rs" src="https://img.shields.io/badge/docs.rs-holidays2-blue">
   </a>
 </p>
 
