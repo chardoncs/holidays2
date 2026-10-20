@@ -115,7 +115,7 @@ countries = [
     Country("ZW", "Zimbabwe"),
 ]
 
-years = range(2000, 2031)
+years = range(2001, 2031)
 
 country = """
 use crate::{Error, Holiday, NaiveDateExt, Result, Year};
