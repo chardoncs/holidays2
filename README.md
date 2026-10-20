@@ -62,6 +62,10 @@ https://github.com/dr-prodigy/python-holidays#available-countries
 * Q: How can I use this crate in a single threaded environment?
 * A: The shared database is a `LazyLock<HolidayMap>` shared by reference, so it needs no locking and already works in a single threaded program. If you don't want a process-wide database at all, call `holidays2::build` (optionally with a range of years) to get an owned `HolidayMap`.
 
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md), generated from the commit history with [git-cliff](https://git-cliff.org) via `just changelog`.
+
 ## Acknowledgement
 
 Thank you so much [python-holidays contributors](https://github.com/vacanza/python-holidays/graphs/contributors) for maintaining such a great package! 🙏
