@@ -19,208 +19,211 @@ anyhow = "1"
 serial_test = "0.10"
 
 [features]
-default = [
-  "AO",
-  "AR",
-  "AM",
-  "AW",
-  "AU",
-  "AT",
-  "AZ",
-  "BD",
-  "BY",
-  "BE",
-  "BO",
-  "BA",
-  "BW",
-  "BR",
-  "BG",
-  "BI",
-  "CA",
-  "CL",
-  "CN",
-  "CO",
-  "HR",
-  "CU",
-  "CW",
-  "CY",
-  "CZ",
-  "DK",
-  "DJ",
-  "DO",
-  "EG",
-  "EE",
-  "ET",
-  "FI",
-  "FR",
-  "GE",
-  "DE",
-  "GR",
-  "HN",
-  "HK",
-  "HU",
-  "IS",
-  "IN",
-  "ID",
-  "IE",
-  "IM",
-  "IL",
-  "IT",
-  "JM",
-  "JP",
-  "KZ",
-  "KE",
-  "LV",
-  "LS",
-  "LI",
-  "LT",
-  "LU",
-  "MG",
-  "MY",
-  "MW",
-  "MT",
-  "MX",
-  "MD",
-  "MA",
-  "MZ",
-  "NL",
-  "NA",
-  "NZ",
-  "NI",
-  "NG",
-  "MK",
-  "NO",
-  "PK",
-  "PY",
-  "PE",
-  "PL",
-  "PT",
-  "RO",
-  "RU",
-  "SA",
-  "RS",
-  "SG",
-  "SK",
-  "SI",
-  "ZA",
-  "KR",
-  "ES",
-  "SZ",
-  "SE",
-  "CH",
-  "TW",
-  "TR",
-  "TN",
-  "UA",
-  "AE",
-  "GB",
-  "US",
-  "UY",
-  "UZ",
-  "VE",
-  "VN",
-  "ZM",
-  "ZW",
+default = ["country-all"]
+
+# Include every supported country.
+country-all = [
+  "country-AO",
+  "country-AR",
+  "country-AM",
+  "country-AW",
+  "country-AU",
+  "country-AT",
+  "country-AZ",
+  "country-BD",
+  "country-BY",
+  "country-BE",
+  "country-BO",
+  "country-BA",
+  "country-BW",
+  "country-BR",
+  "country-BG",
+  "country-BI",
+  "country-CA",
+  "country-CL",
+  "country-CN",
+  "country-CO",
+  "country-HR",
+  "country-CU",
+  "country-CW",
+  "country-CY",
+  "country-CZ",
+  "country-DK",
+  "country-DJ",
+  "country-DO",
+  "country-EG",
+  "country-EE",
+  "country-ET",
+  "country-FI",
+  "country-FR",
+  "country-GE",
+  "country-DE",
+  "country-GR",
+  "country-HN",
+  "country-HK",
+  "country-HU",
+  "country-IS",
+  "country-IN",
+  "country-ID",
+  "country-IE",
+  "country-IM",
+  "country-IL",
+  "country-IT",
+  "country-JM",
+  "country-JP",
+  "country-KZ",
+  "country-KE",
+  "country-LV",
+  "country-LS",
+  "country-LI",
+  "country-LT",
+  "country-LU",
+  "country-MG",
+  "country-MY",
+  "country-MW",
+  "country-MT",
+  "country-MX",
+  "country-MD",
+  "country-MA",
+  "country-MZ",
+  "country-NL",
+  "country-NA",
+  "country-NZ",
+  "country-NI",
+  "country-NG",
+  "country-MK",
+  "country-NO",
+  "country-PK",
+  "country-PY",
+  "country-PE",
+  "country-PL",
+  "country-PT",
+  "country-RO",
+  "country-RU",
+  "country-SA",
+  "country-RS",
+  "country-SG",
+  "country-SK",
+  "country-SI",
+  "country-ZA",
+  "country-KR",
+  "country-ES",
+  "country-SZ",
+  "country-SE",
+  "country-CH",
+  "country-TW",
+  "country-TR",
+  "country-TN",
+  "country-UA",
+  "country-AE",
+  "country-GB",
+  "country-US",
+  "country-UY",
+  "country-UZ",
+  "country-VE",
+  "country-VN",
+  "country-ZM",
+  "country-ZW",
 ]
 
-AO = []
-AR = []
-AM = []
-AW = []
-AU = []
-AT = []
-AZ = []
-BD = []
-BY = []
-BE = []
-BO = []
-BA = []
-BW = []
-BR = []
-BG = []
-BI = []
-CA = []
-CL = []
-CN = []
-CO = []
-HR = []
-CU = []
-CW = []
-CY = []
-CZ = []
-DK = []
-DJ = []
-DO = []
-EG = []
-EE = []
-ET = []
-FI = []
-FR = []
-GE = []
-DE = []
-GR = []
-HN = []
-HK = []
-HU = []
-IS = []
-IN = []
-ID = []
-IE = []
-IM = []
-IL = []
-IT = []
-JM = []
-JP = []
-KZ = []
-KE = []
-LV = []
-LS = []
-LI = []
-LT = []
-LU = []
-MG = []
-MY = []
-MW = []
-MT = []
-MX = []
-MD = []
-MA = []
-MZ = []
-NL = []
-NA = []
-NZ = []
-NI = []
-NG = []
-MK = []
-NO = []
-PK = []
-PY = []
-PE = []
-PL = []
-PT = []
-RO = []
-RU = []
-SA = []
-RS = []
-SG = []
-SK = []
-SI = []
-ZA = []
-KR = []
-ES = []
-SZ = []
-SE = []
-CH = []
-TW = []
-TR = []
-TN = []
-UA = []
-AE = []
-GB = []
-US = []
-UY = []
-UZ = []
-VE = []
-VN = []
-ZM = []
-ZW = []
+country-AO = []
+country-AR = []
+country-AM = []
+country-AW = []
+country-AU = []
+country-AT = []
+country-AZ = []
+country-BD = []
+country-BY = []
+country-BE = []
+country-BO = []
+country-BA = []
+country-BW = []
+country-BR = []
+country-BG = []
+country-BI = []
+country-CA = []
+country-CL = []
+country-CN = []
+country-CO = []
+country-HR = []
+country-CU = []
+country-CW = []
+country-CY = []
+country-CZ = []
+country-DK = []
+country-DJ = []
+country-DO = []
+country-EG = []
+country-EE = []
+country-ET = []
+country-FI = []
+country-FR = []
+country-GE = []
+country-DE = []
+country-GR = []
+country-HN = []
+country-HK = []
+country-HU = []
+country-IS = []
+country-IN = []
+country-ID = []
+country-IE = []
+country-IM = []
+country-IL = []
+country-IT = []
+country-JM = []
+country-JP = []
+country-KZ = []
+country-KE = []
+country-LV = []
+country-LS = []
+country-LI = []
+country-LT = []
+country-LU = []
+country-MG = []
+country-MY = []
+country-MW = []
+country-MT = []
+country-MX = []
+country-MD = []
+country-MA = []
+country-MZ = []
+country-NL = []
+country-NA = []
+country-NZ = []
+country-NI = []
+country-NG = []
+country-MK = []
+country-NO = []
+country-PK = []
+country-PY = []
+country-PE = []
+country-PL = []
+country-PT = []
+country-RO = []
+country-RU = []
+country-SA = []
+country-RS = []
+country-SG = []
+country-SK = []
+country-SI = []
+country-ZA = []
+country-KR = []
+country-ES = []
+country-SZ = []
+country-SE = []
+country-CH = []
+country-TW = []
+country-TR = []
+country-TN = []
+country-UA = []
+country-AE = []
+country-GB = []
+country-US = []
+country-UY = []
+country-UZ = []
+country-VE = []
+country-VN = []
+country-ZM = []
+country-ZW = []

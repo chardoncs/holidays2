@@ -52,8 +52,10 @@ holidays::Builder::new()
 
 If you know what countries are needed at compile-time, you can specify the country code in `Cargo.toml`. This can improve the build performance significantly.
 ```toml
-holidays = { version = "*", default-features = false, features = ["JP"] }
+holidays = { version = "*", default-features = false, features = ["country-JP"] }
 ```
+
+Every supported country is exposed as a `country-<ISO 3166-1 alpha-2 code>` feature (for example `country-JP` or `country-US`). The `country-all` feature enables all of them and is turned on by default.
 
 ## Available countries and years
 

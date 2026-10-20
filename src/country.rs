@@ -1,312 +1,320 @@
-use crate::Error;
+
+use crate::{Error, Holiday, NaiveDateExt, Result, Year};
+
+use chrono::NaiveDate;
+use std::collections::{BTreeMap, HashMap};
+
+use helper::build_year;
+
+mod helper;
 
 /// Two-letter country codes defined in ISO 3166-1 alpha-2 .
 #[allow(dead_code)]
 #[derive(Debug, Clone, Copy, Eq, PartialEq, Hash, PartialOrd, Ord)]
 pub enum Country {
-    #[cfg(feature = "AO")]
-    /// Angola
-    AO,
-    #[cfg(feature = "AR")]
-    /// Argentina
-    AR,
-    #[cfg(feature = "AM")]
-    /// Armenia
-    AM,
-    #[cfg(feature = "AW")]
-    /// Aruba
-    AW,
-    #[cfg(feature = "AU")]
-    /// Australia
-    AU,
-    #[cfg(feature = "AT")]
-    /// Austria
-    AT,
-    #[cfg(feature = "AZ")]
-    /// Azerbaijan
-    AZ,
-    #[cfg(feature = "BD")]
-    /// Bangladesh
-    BD,
-    #[cfg(feature = "BY")]
-    /// Belarus
-    BY,
-    #[cfg(feature = "BE")]
-    /// Belgium
-    BE,
-    #[cfg(feature = "BO")]
-    /// Bolivia
-    BO,
-    #[cfg(feature = "BA")]
-    /// Bosnia and Herzegovina
-    BA,
-    #[cfg(feature = "BW")]
-    /// Botswana
-    BW,
-    #[cfg(feature = "BR")]
-    /// Brazil
-    BR,
-    #[cfg(feature = "BG")]
-    /// Bulgaria
-    BG,
-    #[cfg(feature = "BI")]
-    /// Burundi
-    BI,
-    #[cfg(feature = "CA")]
-    /// Canada
-    CA,
-    #[cfg(feature = "CL")]
-    /// Chile
-    CL,
-    #[cfg(feature = "CN")]
-    /// China
-    CN,
-    #[cfg(feature = "CO")]
-    /// Colombia
-    CO,
-    #[cfg(feature = "HR")]
-    /// Croatia
-    HR,
-    #[cfg(feature = "CU")]
-    /// Cuba
-    CU,
-    #[cfg(feature = "CW")]
-    /// Curaçao
-    CW,
-    #[cfg(feature = "CY")]
-    /// Cyprus
-    CY,
-    #[cfg(feature = "CZ")]
-    /// Czechia
-    CZ,
-    #[cfg(feature = "DK")]
-    /// Denmark
-    DK,
-    #[cfg(feature = "DJ")]
-    /// Djibouti
-    DJ,
-    #[cfg(feature = "DO")]
-    /// Dominican Republic
-    DO,
-    #[cfg(feature = "EG")]
-    /// Egypt
-    EG,
-    #[cfg(feature = "EE")]
-    /// Estonia
-    EE,
-    #[cfg(feature = "ET")]
-    /// Ethiopia
-    ET,
-    #[cfg(feature = "FI")]
-    /// Finland
-    FI,
-    #[cfg(feature = "FR")]
-    /// France
-    FR,
-    #[cfg(feature = "GE")]
-    /// Georgia
-    GE,
-    #[cfg(feature = "DE")]
-    /// Germany
-    DE,
-    #[cfg(feature = "GR")]
-    /// Greece
-    GR,
-    #[cfg(feature = "HN")]
-    /// Honduras
-    HN,
-    #[cfg(feature = "HK")]
-    /// Hong Kong
-    HK,
-    #[cfg(feature = "HU")]
-    /// Hungary
-    HU,
-    #[cfg(feature = "IS")]
-    /// Iceland
-    IS,
-    #[cfg(feature = "IN")]
-    /// India
-    IN,
-    #[cfg(feature = "ID")]
-    /// Indonesia
-    ID,
-    #[cfg(feature = "IE")]
-    /// Ireland
-    IE,
-    #[cfg(feature = "IM")]
-    /// Isle of Man
-    IM,
-    #[cfg(feature = "IL")]
-    /// Israel
-    IL,
-    #[cfg(feature = "IT")]
-    /// Italy
-    IT,
-    #[cfg(feature = "JM")]
-    /// Jamaica
-    JM,
-    #[cfg(feature = "JP")]
-    /// Japan
-    JP,
-    #[cfg(feature = "KZ")]
-    /// Kazakhstan
-    KZ,
-    #[cfg(feature = "KE")]
-    /// Kenya
-    KE,
-    #[cfg(feature = "LV")]
-    /// Latvia
-    LV,
-    #[cfg(feature = "LS")]
-    /// Lesotho
-    LS,
-    #[cfg(feature = "LI")]
-    /// Liechtenstein
-    LI,
-    #[cfg(feature = "LT")]
-    /// Lithuania
-    LT,
-    #[cfg(feature = "LU")]
-    /// Luxembourg
-    LU,
-    #[cfg(feature = "MG")]
-    /// Madagascar
-    MG,
-    #[cfg(feature = "MY")]
-    /// Malaysia
-    MY,
-    #[cfg(feature = "MW")]
-    /// Malawi
-    MW,
-    #[cfg(feature = "MT")]
-    /// Malta
-    MT,
-    #[cfg(feature = "MX")]
-    /// Mexico
-    MX,
-    #[cfg(feature = "MD")]
-    /// Moldova
-    MD,
-    #[cfg(feature = "MA")]
-    /// Morocco
-    MA,
-    #[cfg(feature = "MZ")]
-    /// Mozambique
-    MZ,
-    #[cfg(feature = "NL")]
-    /// Netherlands
-    NL,
-    #[cfg(feature = "NA")]
-    /// Namibia
-    NA,
-    #[cfg(feature = "NZ")]
-    /// New Zealand
-    NZ,
-    #[cfg(feature = "NI")]
-    /// Nicaragua
-    NI,
-    #[cfg(feature = "NG")]
-    /// Nigeria
-    NG,
-    #[cfg(feature = "MK")]
-    /// North Macedonia
-    MK,
-    #[cfg(feature = "NO")]
-    /// Norway
-    NO,
-    #[cfg(feature = "PK")]
-    /// Pakistan
-    PK,
-    #[cfg(feature = "PY")]
-    /// Paraguay
-    PY,
-    #[cfg(feature = "PE")]
-    /// Peru
-    PE,
-    #[cfg(feature = "PL")]
-    /// Poland
-    PL,
-    #[cfg(feature = "PT")]
-    /// Portugal
-    PT,
-    #[cfg(feature = "RO")]
-    /// Romania
-    RO,
-    #[cfg(feature = "RU")]
-    /// Russia
-    RU,
-    #[cfg(feature = "SA")]
-    /// Saudi Arabia
-    SA,
-    #[cfg(feature = "RS")]
-    /// Serbia
-    RS,
-    #[cfg(feature = "SG")]
-    /// Singapore
-    SG,
-    #[cfg(feature = "SK")]
-    /// Slovakia
-    SK,
-    #[cfg(feature = "SI")]
-    /// Slovenia
-    SI,
-    #[cfg(feature = "ZA")]
-    /// South Africa
-    ZA,
-    #[cfg(feature = "KR")]
-    /// South Korea
-    KR,
-    #[cfg(feature = "ES")]
-    /// Spain
-    ES,
-    #[cfg(feature = "SZ")]
-    /// Swaziland
-    SZ,
-    #[cfg(feature = "SE")]
-    /// Sweden
-    SE,
-    #[cfg(feature = "CH")]
-    /// Switzerland
-    CH,
-    #[cfg(feature = "TW")]
-    /// Taiwan
-    TW,
-    #[cfg(feature = "TR")]
-    /// Turkey
-    TR,
-    #[cfg(feature = "TN")]
-    /// Tunisia
-    TN,
-    #[cfg(feature = "UA")]
-    /// Ukraine
-    UA,
-    #[cfg(feature = "AE")]
-    /// United Arab Emirates
-    AE,
-    #[cfg(feature = "GB")]
-    /// United Kingdom
-    GB,
-    #[cfg(feature = "US")]
-    /// United States
-    US,
-    #[cfg(feature = "UY")]
-    /// Uruguay
-    UY,
-    #[cfg(feature = "UZ")]
-    /// Uzbekistan
-    UZ,
-    #[cfg(feature = "VE")]
-    /// Venezuela
-    VE,
-    #[cfg(feature = "VN")]
-    /// Vietnam
-    VN,
-    #[cfg(feature = "ZM")]
-    /// Zambia
-    ZM,
-    #[cfg(feature = "ZW")]
-    /// Zimbabwe
-    ZW,
+  #[cfg(feature = "country-AO")]
+  /// Angola
+  AO,
+  #[cfg(feature = "country-AR")]
+  /// Argentina
+  AR,
+  #[cfg(feature = "country-AM")]
+  /// Armenia
+  AM,
+  #[cfg(feature = "country-AW")]
+  /// Aruba
+  AW,
+  #[cfg(feature = "country-AU")]
+  /// Australia
+  AU,
+  #[cfg(feature = "country-AT")]
+  /// Austria
+  AT,
+  #[cfg(feature = "country-AZ")]
+  /// Azerbaijan
+  AZ,
+  #[cfg(feature = "country-BD")]
+  /// Bangladesh
+  BD,
+  #[cfg(feature = "country-BY")]
+  /// Belarus
+  BY,
+  #[cfg(feature = "country-BE")]
+  /// Belgium
+  BE,
+  #[cfg(feature = "country-BO")]
+  /// Bolivia
+  BO,
+  #[cfg(feature = "country-BA")]
+  /// Bosnia and Herzegovina
+  BA,
+  #[cfg(feature = "country-BW")]
+  /// Botswana
+  BW,
+  #[cfg(feature = "country-BR")]
+  /// Brazil
+  BR,
+  #[cfg(feature = "country-BG")]
+  /// Bulgaria
+  BG,
+  #[cfg(feature = "country-BI")]
+  /// Burundi
+  BI,
+  #[cfg(feature = "country-CA")]
+  /// Canada
+  CA,
+  #[cfg(feature = "country-CL")]
+  /// Chile
+  CL,
+  #[cfg(feature = "country-CN")]
+  /// China
+  CN,
+  #[cfg(feature = "country-CO")]
+  /// Colombia
+  CO,
+  #[cfg(feature = "country-HR")]
+  /// Croatia
+  HR,
+  #[cfg(feature = "country-CU")]
+  /// Cuba
+  CU,
+  #[cfg(feature = "country-CW")]
+  /// Curaçao
+  CW,
+  #[cfg(feature = "country-CY")]
+  /// Cyprus
+  CY,
+  #[cfg(feature = "country-CZ")]
+  /// Czechia
+  CZ,
+  #[cfg(feature = "country-DK")]
+  /// Denmark
+  DK,
+  #[cfg(feature = "country-DJ")]
+  /// Djibouti
+  DJ,
+  #[cfg(feature = "country-DO")]
+  /// Dominican Republic
+  DO,
+  #[cfg(feature = "country-EG")]
+  /// Egypt
+  EG,
+  #[cfg(feature = "country-EE")]
+  /// Estonia
+  EE,
+  #[cfg(feature = "country-ET")]
+  /// Ethiopia
+  ET,
+  #[cfg(feature = "country-FI")]
+  /// Finland
+  FI,
+  #[cfg(feature = "country-FR")]
+  /// France
+  FR,
+  #[cfg(feature = "country-GE")]
+  /// Georgia
+  GE,
+  #[cfg(feature = "country-DE")]
+  /// Germany
+  DE,
+  #[cfg(feature = "country-GR")]
+  /// Greece
+  GR,
+  #[cfg(feature = "country-HN")]
+  /// Honduras
+  HN,
+  #[cfg(feature = "country-HK")]
+  /// Hong Kong
+  HK,
+  #[cfg(feature = "country-HU")]
+  /// Hungary
+  HU,
+  #[cfg(feature = "country-IS")]
+  /// Iceland
+  IS,
+  #[cfg(feature = "country-IN")]
+  /// India
+  IN,
+  #[cfg(feature = "country-ID")]
+  /// Indonesia
+  ID,
+  #[cfg(feature = "country-IE")]
+  /// Ireland
+  IE,
+  #[cfg(feature = "country-IM")]
+  /// Isle of Man
+  IM,
+  #[cfg(feature = "country-IL")]
+  /// Israel
+  IL,
+  #[cfg(feature = "country-IT")]
+  /// Italy
+  IT,
+  #[cfg(feature = "country-JM")]
+  /// Jamaica
+  JM,
+  #[cfg(feature = "country-JP")]
+  /// Japan
+  JP,
+  #[cfg(feature = "country-KZ")]
+  /// Kazakhstan
+  KZ,
+  #[cfg(feature = "country-KE")]
+  /// Kenya
+  KE,
+  #[cfg(feature = "country-LV")]
+  /// Latvia
+  LV,
+  #[cfg(feature = "country-LS")]
+  /// Lesotho
+  LS,
+  #[cfg(feature = "country-LI")]
+  /// Liechtenstein
+  LI,
+  #[cfg(feature = "country-LT")]
+  /// Lithuania
+  LT,
+  #[cfg(feature = "country-LU")]
+  /// Luxembourg
+  LU,
+  #[cfg(feature = "country-MG")]
+  /// Madagascar
+  MG,
+  #[cfg(feature = "country-MY")]
+  /// Malaysia
+  MY,
+  #[cfg(feature = "country-MW")]
+  /// Malawi
+  MW,
+  #[cfg(feature = "country-MT")]
+  /// Malta
+  MT,
+  #[cfg(feature = "country-MX")]
+  /// Mexico
+  MX,
+  #[cfg(feature = "country-MD")]
+  /// Moldova
+  MD,
+  #[cfg(feature = "country-MA")]
+  /// Morocco
+  MA,
+  #[cfg(feature = "country-MZ")]
+  /// Mozambique
+  MZ,
+  #[cfg(feature = "country-NL")]
+  /// Netherlands
+  NL,
+  #[cfg(feature = "country-NA")]
+  /// Namibia
+  NA,
+  #[cfg(feature = "country-NZ")]
+  /// New Zealand
+  NZ,
+  #[cfg(feature = "country-NI")]
+  /// Nicaragua
+  NI,
+  #[cfg(feature = "country-NG")]
+  /// Nigeria
+  NG,
+  #[cfg(feature = "country-MK")]
+  /// North Macedonia
+  MK,
+  #[cfg(feature = "country-NO")]
+  /// Norway
+  NO,
+  #[cfg(feature = "country-PK")]
+  /// Pakistan
+  PK,
+  #[cfg(feature = "country-PY")]
+  /// Paraguay
+  PY,
+  #[cfg(feature = "country-PE")]
+  /// Peru
+  PE,
+  #[cfg(feature = "country-PL")]
+  /// Poland
+  PL,
+  #[cfg(feature = "country-PT")]
+  /// Portugal
+  PT,
+  #[cfg(feature = "country-RO")]
+  /// Romania
+  RO,
+  #[cfg(feature = "country-RU")]
+  /// Russia
+  RU,
+  #[cfg(feature = "country-SA")]
+  /// Saudi Arabia
+  SA,
+  #[cfg(feature = "country-RS")]
+  /// Serbia
+  RS,
+  #[cfg(feature = "country-SG")]
+  /// Singapore
+  SG,
+  #[cfg(feature = "country-SK")]
+  /// Slovakia
+  SK,
+  #[cfg(feature = "country-SI")]
+  /// Slovenia
+  SI,
+  #[cfg(feature = "country-ZA")]
+  /// South Africa
+  ZA,
+  #[cfg(feature = "country-KR")]
+  /// South Korea
+  KR,
+  #[cfg(feature = "country-ES")]
+  /// Spain
+  ES,
+  #[cfg(feature = "country-SZ")]
+  /// Swaziland
+  SZ,
+  #[cfg(feature = "country-SE")]
+  /// Sweden
+  SE,
+  #[cfg(feature = "country-CH")]
+  /// Switzerland
+  CH,
+  #[cfg(feature = "country-TW")]
+  /// Taiwan
+  TW,
+  #[cfg(feature = "country-TR")]
+  /// Turkey
+  TR,
+  #[cfg(feature = "country-TN")]
+  /// Tunisia
+  TN,
+  #[cfg(feature = "country-UA")]
+  /// Ukraine
+  UA,
+  #[cfg(feature = "country-AE")]
+  /// United Arab Emirates
+  AE,
+  #[cfg(feature = "country-GB")]
+  /// United Kingdom
+  GB,
+  #[cfg(feature = "country-US")]
+  /// United States
+  US,
+  #[cfg(feature = "country-UY")]
+  /// Uruguay
+  UY,
+  #[cfg(feature = "country-UZ")]
+  /// Uzbekistan
+  UZ,
+  #[cfg(feature = "country-VE")]
+  /// Venezuela
+  VE,
+  #[cfg(feature = "country-VN")]
+  /// Vietnam
+  VN,
+  #[cfg(feature = "country-ZM")]
+  /// Zambia
+  ZM,
+  #[cfg(feature = "country-ZW")]
+  /// Zimbabwe
+  ZW,
 }
 
 impl std::fmt::Display for Country {
@@ -316,422 +324,726 @@ impl std::fmt::Display for Country {
 }
 
 impl AsRef<str> for Country {
-    fn as_ref(&self) -> &str {
-        match self {
-            #[cfg(feature = "AO")]
-            Country::AO => "AO",
-            #[cfg(feature = "AR")]
-            Country::AR => "AR",
-            #[cfg(feature = "AM")]
-            Country::AM => "AM",
-            #[cfg(feature = "AW")]
-            Country::AW => "AW",
-            #[cfg(feature = "AU")]
-            Country::AU => "AU",
-            #[cfg(feature = "AT")]
-            Country::AT => "AT",
-            #[cfg(feature = "AZ")]
-            Country::AZ => "AZ",
-            #[cfg(feature = "BD")]
-            Country::BD => "BD",
-            #[cfg(feature = "BY")]
-            Country::BY => "BY",
-            #[cfg(feature = "BE")]
-            Country::BE => "BE",
-            #[cfg(feature = "BO")]
-            Country::BO => "BO",
-            #[cfg(feature = "BA")]
-            Country::BA => "BA",
-            #[cfg(feature = "BW")]
-            Country::BW => "BW",
-            #[cfg(feature = "BR")]
-            Country::BR => "BR",
-            #[cfg(feature = "BG")]
-            Country::BG => "BG",
-            #[cfg(feature = "BI")]
-            Country::BI => "BI",
-            #[cfg(feature = "CA")]
-            Country::CA => "CA",
-            #[cfg(feature = "CL")]
-            Country::CL => "CL",
-            #[cfg(feature = "CN")]
-            Country::CN => "CN",
-            #[cfg(feature = "CO")]
-            Country::CO => "CO",
-            #[cfg(feature = "HR")]
-            Country::HR => "HR",
-            #[cfg(feature = "CU")]
-            Country::CU => "CU",
-            #[cfg(feature = "CW")]
-            Country::CW => "CW",
-            #[cfg(feature = "CY")]
-            Country::CY => "CY",
-            #[cfg(feature = "CZ")]
-            Country::CZ => "CZ",
-            #[cfg(feature = "DK")]
-            Country::DK => "DK",
-            #[cfg(feature = "DJ")]
-            Country::DJ => "DJ",
-            #[cfg(feature = "DO")]
-            Country::DO => "DO",
-            #[cfg(feature = "EG")]
-            Country::EG => "EG",
-            #[cfg(feature = "EE")]
-            Country::EE => "EE",
-            #[cfg(feature = "ET")]
-            Country::ET => "ET",
-            #[cfg(feature = "FI")]
-            Country::FI => "FI",
-            #[cfg(feature = "FR")]
-            Country::FR => "FR",
-            #[cfg(feature = "GE")]
-            Country::GE => "GE",
-            #[cfg(feature = "DE")]
-            Country::DE => "DE",
-            #[cfg(feature = "GR")]
-            Country::GR => "GR",
-            #[cfg(feature = "HN")]
-            Country::HN => "HN",
-            #[cfg(feature = "HK")]
-            Country::HK => "HK",
-            #[cfg(feature = "HU")]
-            Country::HU => "HU",
-            #[cfg(feature = "IS")]
-            Country::IS => "IS",
-            #[cfg(feature = "IN")]
-            Country::IN => "IN",
-            #[cfg(feature = "ID")]
-            Country::ID => "ID",
-            #[cfg(feature = "IE")]
-            Country::IE => "IE",
-            #[cfg(feature = "IM")]
-            Country::IM => "IM",
-            #[cfg(feature = "IL")]
-            Country::IL => "IL",
-            #[cfg(feature = "IT")]
-            Country::IT => "IT",
-            #[cfg(feature = "JM")]
-            Country::JM => "JM",
-            #[cfg(feature = "JP")]
-            Country::JP => "JP",
-            #[cfg(feature = "KZ")]
-            Country::KZ => "KZ",
-            #[cfg(feature = "KE")]
-            Country::KE => "KE",
-            #[cfg(feature = "LV")]
-            Country::LV => "LV",
-            #[cfg(feature = "LS")]
-            Country::LS => "LS",
-            #[cfg(feature = "LI")]
-            Country::LI => "LI",
-            #[cfg(feature = "LT")]
-            Country::LT => "LT",
-            #[cfg(feature = "LU")]
-            Country::LU => "LU",
-            #[cfg(feature = "MG")]
-            Country::MG => "MG",
-            #[cfg(feature = "MY")]
-            Country::MY => "MY",
-            #[cfg(feature = "MW")]
-            Country::MW => "MW",
-            #[cfg(feature = "MT")]
-            Country::MT => "MT",
-            #[cfg(feature = "MX")]
-            Country::MX => "MX",
-            #[cfg(feature = "MD")]
-            Country::MD => "MD",
-            #[cfg(feature = "MA")]
-            Country::MA => "MA",
-            #[cfg(feature = "MZ")]
-            Country::MZ => "MZ",
-            #[cfg(feature = "NL")]
-            Country::NL => "NL",
-            #[cfg(feature = "NA")]
-            Country::NA => "NA",
-            #[cfg(feature = "NZ")]
-            Country::NZ => "NZ",
-            #[cfg(feature = "NI")]
-            Country::NI => "NI",
-            #[cfg(feature = "NG")]
-            Country::NG => "NG",
-            #[cfg(feature = "MK")]
-            Country::MK => "MK",
-            #[cfg(feature = "NO")]
-            Country::NO => "NO",
-            #[cfg(feature = "PK")]
-            Country::PK => "PK",
-            #[cfg(feature = "PY")]
-            Country::PY => "PY",
-            #[cfg(feature = "PE")]
-            Country::PE => "PE",
-            #[cfg(feature = "PL")]
-            Country::PL => "PL",
-            #[cfg(feature = "PT")]
-            Country::PT => "PT",
-            #[cfg(feature = "RO")]
-            Country::RO => "RO",
-            #[cfg(feature = "RU")]
-            Country::RU => "RU",
-            #[cfg(feature = "SA")]
-            Country::SA => "SA",
-            #[cfg(feature = "RS")]
-            Country::RS => "RS",
-            #[cfg(feature = "SG")]
-            Country::SG => "SG",
-            #[cfg(feature = "SK")]
-            Country::SK => "SK",
-            #[cfg(feature = "SI")]
-            Country::SI => "SI",
-            #[cfg(feature = "ZA")]
-            Country::ZA => "ZA",
-            #[cfg(feature = "KR")]
-            Country::KR => "KR",
-            #[cfg(feature = "ES")]
-            Country::ES => "ES",
-            #[cfg(feature = "SZ")]
-            Country::SZ => "SZ",
-            #[cfg(feature = "SE")]
-            Country::SE => "SE",
-            #[cfg(feature = "CH")]
-            Country::CH => "CH",
-            #[cfg(feature = "TW")]
-            Country::TW => "TW",
-            #[cfg(feature = "TR")]
-            Country::TR => "TR",
-            #[cfg(feature = "TN")]
-            Country::TN => "TN",
-            #[cfg(feature = "UA")]
-            Country::UA => "UA",
-            #[cfg(feature = "AE")]
-            Country::AE => "AE",
-            #[cfg(feature = "GB")]
-            Country::GB => "GB",
-            #[cfg(feature = "US")]
-            Country::US => "US",
-            #[cfg(feature = "UY")]
-            Country::UY => "UY",
-            #[cfg(feature = "UZ")]
-            Country::UZ => "UZ",
-            #[cfg(feature = "VE")]
-            Country::VE => "VE",
-            #[cfg(feature = "VN")]
-            Country::VN => "VN",
-            #[cfg(feature = "ZM")]
-            Country::ZM => "ZM",
-            #[cfg(feature = "ZW")]
-            Country::ZW => "ZW",
-        }
+  fn as_ref(&self) -> &str {
+    match self {
+      #[cfg(feature = "country-AO")]
+      Country::AO => "AO",
+      #[cfg(feature = "country-AR")]
+      Country::AR => "AR",
+      #[cfg(feature = "country-AM")]
+      Country::AM => "AM",
+      #[cfg(feature = "country-AW")]
+      Country::AW => "AW",
+      #[cfg(feature = "country-AU")]
+      Country::AU => "AU",
+      #[cfg(feature = "country-AT")]
+      Country::AT => "AT",
+      #[cfg(feature = "country-AZ")]
+      Country::AZ => "AZ",
+      #[cfg(feature = "country-BD")]
+      Country::BD => "BD",
+      #[cfg(feature = "country-BY")]
+      Country::BY => "BY",
+      #[cfg(feature = "country-BE")]
+      Country::BE => "BE",
+      #[cfg(feature = "country-BO")]
+      Country::BO => "BO",
+      #[cfg(feature = "country-BA")]
+      Country::BA => "BA",
+      #[cfg(feature = "country-BW")]
+      Country::BW => "BW",
+      #[cfg(feature = "country-BR")]
+      Country::BR => "BR",
+      #[cfg(feature = "country-BG")]
+      Country::BG => "BG",
+      #[cfg(feature = "country-BI")]
+      Country::BI => "BI",
+      #[cfg(feature = "country-CA")]
+      Country::CA => "CA",
+      #[cfg(feature = "country-CL")]
+      Country::CL => "CL",
+      #[cfg(feature = "country-CN")]
+      Country::CN => "CN",
+      #[cfg(feature = "country-CO")]
+      Country::CO => "CO",
+      #[cfg(feature = "country-HR")]
+      Country::HR => "HR",
+      #[cfg(feature = "country-CU")]
+      Country::CU => "CU",
+      #[cfg(feature = "country-CW")]
+      Country::CW => "CW",
+      #[cfg(feature = "country-CY")]
+      Country::CY => "CY",
+      #[cfg(feature = "country-CZ")]
+      Country::CZ => "CZ",
+      #[cfg(feature = "country-DK")]
+      Country::DK => "DK",
+      #[cfg(feature = "country-DJ")]
+      Country::DJ => "DJ",
+      #[cfg(feature = "country-DO")]
+      Country::DO => "DO",
+      #[cfg(feature = "country-EG")]
+      Country::EG => "EG",
+      #[cfg(feature = "country-EE")]
+      Country::EE => "EE",
+      #[cfg(feature = "country-ET")]
+      Country::ET => "ET",
+      #[cfg(feature = "country-FI")]
+      Country::FI => "FI",
+      #[cfg(feature = "country-FR")]
+      Country::FR => "FR",
+      #[cfg(feature = "country-GE")]
+      Country::GE => "GE",
+      #[cfg(feature = "country-DE")]
+      Country::DE => "DE",
+      #[cfg(feature = "country-GR")]
+      Country::GR => "GR",
+      #[cfg(feature = "country-HN")]
+      Country::HN => "HN",
+      #[cfg(feature = "country-HK")]
+      Country::HK => "HK",
+      #[cfg(feature = "country-HU")]
+      Country::HU => "HU",
+      #[cfg(feature = "country-IS")]
+      Country::IS => "IS",
+      #[cfg(feature = "country-IN")]
+      Country::IN => "IN",
+      #[cfg(feature = "country-ID")]
+      Country::ID => "ID",
+      #[cfg(feature = "country-IE")]
+      Country::IE => "IE",
+      #[cfg(feature = "country-IM")]
+      Country::IM => "IM",
+      #[cfg(feature = "country-IL")]
+      Country::IL => "IL",
+      #[cfg(feature = "country-IT")]
+      Country::IT => "IT",
+      #[cfg(feature = "country-JM")]
+      Country::JM => "JM",
+      #[cfg(feature = "country-JP")]
+      Country::JP => "JP",
+      #[cfg(feature = "country-KZ")]
+      Country::KZ => "KZ",
+      #[cfg(feature = "country-KE")]
+      Country::KE => "KE",
+      #[cfg(feature = "country-LV")]
+      Country::LV => "LV",
+      #[cfg(feature = "country-LS")]
+      Country::LS => "LS",
+      #[cfg(feature = "country-LI")]
+      Country::LI => "LI",
+      #[cfg(feature = "country-LT")]
+      Country::LT => "LT",
+      #[cfg(feature = "country-LU")]
+      Country::LU => "LU",
+      #[cfg(feature = "country-MG")]
+      Country::MG => "MG",
+      #[cfg(feature = "country-MY")]
+      Country::MY => "MY",
+      #[cfg(feature = "country-MW")]
+      Country::MW => "MW",
+      #[cfg(feature = "country-MT")]
+      Country::MT => "MT",
+      #[cfg(feature = "country-MX")]
+      Country::MX => "MX",
+      #[cfg(feature = "country-MD")]
+      Country::MD => "MD",
+      #[cfg(feature = "country-MA")]
+      Country::MA => "MA",
+      #[cfg(feature = "country-MZ")]
+      Country::MZ => "MZ",
+      #[cfg(feature = "country-NL")]
+      Country::NL => "NL",
+      #[cfg(feature = "country-NA")]
+      Country::NA => "NA",
+      #[cfg(feature = "country-NZ")]
+      Country::NZ => "NZ",
+      #[cfg(feature = "country-NI")]
+      Country::NI => "NI",
+      #[cfg(feature = "country-NG")]
+      Country::NG => "NG",
+      #[cfg(feature = "country-MK")]
+      Country::MK => "MK",
+      #[cfg(feature = "country-NO")]
+      Country::NO => "NO",
+      #[cfg(feature = "country-PK")]
+      Country::PK => "PK",
+      #[cfg(feature = "country-PY")]
+      Country::PY => "PY",
+      #[cfg(feature = "country-PE")]
+      Country::PE => "PE",
+      #[cfg(feature = "country-PL")]
+      Country::PL => "PL",
+      #[cfg(feature = "country-PT")]
+      Country::PT => "PT",
+      #[cfg(feature = "country-RO")]
+      Country::RO => "RO",
+      #[cfg(feature = "country-RU")]
+      Country::RU => "RU",
+      #[cfg(feature = "country-SA")]
+      Country::SA => "SA",
+      #[cfg(feature = "country-RS")]
+      Country::RS => "RS",
+      #[cfg(feature = "country-SG")]
+      Country::SG => "SG",
+      #[cfg(feature = "country-SK")]
+      Country::SK => "SK",
+      #[cfg(feature = "country-SI")]
+      Country::SI => "SI",
+      #[cfg(feature = "country-ZA")]
+      Country::ZA => "ZA",
+      #[cfg(feature = "country-KR")]
+      Country::KR => "KR",
+      #[cfg(feature = "country-ES")]
+      Country::ES => "ES",
+      #[cfg(feature = "country-SZ")]
+      Country::SZ => "SZ",
+      #[cfg(feature = "country-SE")]
+      Country::SE => "SE",
+      #[cfg(feature = "country-CH")]
+      Country::CH => "CH",
+      #[cfg(feature = "country-TW")]
+      Country::TW => "TW",
+      #[cfg(feature = "country-TR")]
+      Country::TR => "TR",
+      #[cfg(feature = "country-TN")]
+      Country::TN => "TN",
+      #[cfg(feature = "country-UA")]
+      Country::UA => "UA",
+      #[cfg(feature = "country-AE")]
+      Country::AE => "AE",
+      #[cfg(feature = "country-GB")]
+      Country::GB => "GB",
+      #[cfg(feature = "country-US")]
+      Country::US => "US",
+      #[cfg(feature = "country-UY")]
+      Country::UY => "UY",
+      #[cfg(feature = "country-UZ")]
+      Country::UZ => "UZ",
+      #[cfg(feature = "country-VE")]
+      Country::VE => "VE",
+      #[cfg(feature = "country-VN")]
+      Country::VN => "VN",
+      #[cfg(feature = "country-ZM")]
+      Country::ZM => "ZM",
+      #[cfg(feature = "country-ZW")]
+      Country::ZW => "ZW",
     }
+  }
 }
 
 impl std::str::FromStr for Country {
-    type Err = Error;
+  type Err = Error;
 
-    fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
-        Ok(match s {
-            #[cfg(feature = "AO")]
-            "AO" => Country::AO,
-            #[cfg(feature = "AR")]
-            "AR" => Country::AR,
-            #[cfg(feature = "AM")]
-            "AM" => Country::AM,
-            #[cfg(feature = "AW")]
-            "AW" => Country::AW,
-            #[cfg(feature = "AU")]
-            "AU" => Country::AU,
-            #[cfg(feature = "AT")]
-            "AT" => Country::AT,
-            #[cfg(feature = "AZ")]
-            "AZ" => Country::AZ,
-            #[cfg(feature = "BD")]
-            "BD" => Country::BD,
-            #[cfg(feature = "BY")]
-            "BY" => Country::BY,
-            #[cfg(feature = "BE")]
-            "BE" => Country::BE,
-            #[cfg(feature = "BO")]
-            "BO" => Country::BO,
-            #[cfg(feature = "BA")]
-            "BA" => Country::BA,
-            #[cfg(feature = "BW")]
-            "BW" => Country::BW,
-            #[cfg(feature = "BR")]
-            "BR" => Country::BR,
-            #[cfg(feature = "BG")]
-            "BG" => Country::BG,
-            #[cfg(feature = "BI")]
-            "BI" => Country::BI,
-            #[cfg(feature = "CA")]
-            "CA" => Country::CA,
-            #[cfg(feature = "CL")]
-            "CL" => Country::CL,
-            #[cfg(feature = "CN")]
-            "CN" => Country::CN,
-            #[cfg(feature = "CO")]
-            "CO" => Country::CO,
-            #[cfg(feature = "HR")]
-            "HR" => Country::HR,
-            #[cfg(feature = "CU")]
-            "CU" => Country::CU,
-            #[cfg(feature = "CW")]
-            "CW" => Country::CW,
-            #[cfg(feature = "CY")]
-            "CY" => Country::CY,
-            #[cfg(feature = "CZ")]
-            "CZ" => Country::CZ,
-            #[cfg(feature = "DK")]
-            "DK" => Country::DK,
-            #[cfg(feature = "DJ")]
-            "DJ" => Country::DJ,
-            #[cfg(feature = "DO")]
-            "DO" => Country::DO,
-            #[cfg(feature = "EG")]
-            "EG" => Country::EG,
-            #[cfg(feature = "EE")]
-            "EE" => Country::EE,
-            #[cfg(feature = "ET")]
-            "ET" => Country::ET,
-            #[cfg(feature = "FI")]
-            "FI" => Country::FI,
-            #[cfg(feature = "FR")]
-            "FR" => Country::FR,
-            #[cfg(feature = "GE")]
-            "GE" => Country::GE,
-            #[cfg(feature = "DE")]
-            "DE" => Country::DE,
-            #[cfg(feature = "GR")]
-            "GR" => Country::GR,
-            #[cfg(feature = "HN")]
-            "HN" => Country::HN,
-            #[cfg(feature = "HK")]
-            "HK" => Country::HK,
-            #[cfg(feature = "HU")]
-            "HU" => Country::HU,
-            #[cfg(feature = "IS")]
-            "IS" => Country::IS,
-            #[cfg(feature = "IN")]
-            "IN" => Country::IN,
-            #[cfg(feature = "ID")]
-            "ID" => Country::ID,
-            #[cfg(feature = "IE")]
-            "IE" => Country::IE,
-            #[cfg(feature = "IM")]
-            "IM" => Country::IM,
-            #[cfg(feature = "IL")]
-            "IL" => Country::IL,
-            #[cfg(feature = "IT")]
-            "IT" => Country::IT,
-            #[cfg(feature = "JM")]
-            "JM" => Country::JM,
-            #[cfg(feature = "JP")]
-            "JP" => Country::JP,
-            #[cfg(feature = "KZ")]
-            "KZ" => Country::KZ,
-            #[cfg(feature = "KE")]
-            "KE" => Country::KE,
-            #[cfg(feature = "LV")]
-            "LV" => Country::LV,
-            #[cfg(feature = "LS")]
-            "LS" => Country::LS,
-            #[cfg(feature = "LI")]
-            "LI" => Country::LI,
-            #[cfg(feature = "LT")]
-            "LT" => Country::LT,
-            #[cfg(feature = "LU")]
-            "LU" => Country::LU,
-            #[cfg(feature = "MG")]
-            "MG" => Country::MG,
-            #[cfg(feature = "MY")]
-            "MY" => Country::MY,
-            #[cfg(feature = "MW")]
-            "MW" => Country::MW,
-            #[cfg(feature = "MT")]
-            "MT" => Country::MT,
-            #[cfg(feature = "MX")]
-            "MX" => Country::MX,
-            #[cfg(feature = "MD")]
-            "MD" => Country::MD,
-            #[cfg(feature = "MA")]
-            "MA" => Country::MA,
-            #[cfg(feature = "MZ")]
-            "MZ" => Country::MZ,
-            #[cfg(feature = "NL")]
-            "NL" => Country::NL,
-            #[cfg(feature = "NA")]
-            "NA" => Country::NA,
-            #[cfg(feature = "NZ")]
-            "NZ" => Country::NZ,
-            #[cfg(feature = "NI")]
-            "NI" => Country::NI,
-            #[cfg(feature = "NG")]
-            "NG" => Country::NG,
-            #[cfg(feature = "MK")]
-            "MK" => Country::MK,
-            #[cfg(feature = "NO")]
-            "NO" => Country::NO,
-            #[cfg(feature = "PK")]
-            "PK" => Country::PK,
-            #[cfg(feature = "PY")]
-            "PY" => Country::PY,
-            #[cfg(feature = "PE")]
-            "PE" => Country::PE,
-            #[cfg(feature = "PL")]
-            "PL" => Country::PL,
-            #[cfg(feature = "PT")]
-            "PT" => Country::PT,
-            #[cfg(feature = "RO")]
-            "RO" => Country::RO,
-            #[cfg(feature = "RU")]
-            "RU" => Country::RU,
-            #[cfg(feature = "SA")]
-            "SA" => Country::SA,
-            #[cfg(feature = "RS")]
-            "RS" => Country::RS,
-            #[cfg(feature = "SG")]
-            "SG" => Country::SG,
-            #[cfg(feature = "SK")]
-            "SK" => Country::SK,
-            #[cfg(feature = "SI")]
-            "SI" => Country::SI,
-            #[cfg(feature = "ZA")]
-            "ZA" => Country::ZA,
-            #[cfg(feature = "KR")]
-            "KR" => Country::KR,
-            #[cfg(feature = "ES")]
-            "ES" => Country::ES,
-            #[cfg(feature = "SZ")]
-            "SZ" => Country::SZ,
-            #[cfg(feature = "SE")]
-            "SE" => Country::SE,
-            #[cfg(feature = "CH")]
-            "CH" => Country::CH,
-            #[cfg(feature = "TW")]
-            "TW" => Country::TW,
-            #[cfg(feature = "TR")]
-            "TR" => Country::TR,
-            #[cfg(feature = "TN")]
-            "TN" => Country::TN,
-            #[cfg(feature = "UA")]
-            "UA" => Country::UA,
-            #[cfg(feature = "AE")]
-            "AE" => Country::AE,
-            #[cfg(feature = "GB")]
-            "GB" => Country::GB,
-            #[cfg(feature = "US")]
-            "US" => Country::US,
-            #[cfg(feature = "UY")]
-            "UY" => Country::UY,
-            #[cfg(feature = "UZ")]
-            "UZ" => Country::UZ,
-            #[cfg(feature = "VE")]
-            "VE" => Country::VE,
-            #[cfg(feature = "VN")]
-            "VN" => Country::VN,
-            #[cfg(feature = "ZM")]
-            "ZM" => Country::ZM,
-            #[cfg(feature = "ZW")]
-            "ZW" => Country::ZW,
-            _ => return Err(Error::CountryNotAvailable),
-        })
-    }
+  fn from_str(s: &str) -> std::result::Result<Self, Self::Err> {
+    Ok(match s {
+      #[cfg(feature = "country-AO")]
+      "AO" => Country::AO,
+      #[cfg(feature = "country-AR")]
+      "AR" => Country::AR,
+      #[cfg(feature = "country-AM")]
+      "AM" => Country::AM,
+      #[cfg(feature = "country-AW")]
+      "AW" => Country::AW,
+      #[cfg(feature = "country-AU")]
+      "AU" => Country::AU,
+      #[cfg(feature = "country-AT")]
+      "AT" => Country::AT,
+      #[cfg(feature = "country-AZ")]
+      "AZ" => Country::AZ,
+      #[cfg(feature = "country-BD")]
+      "BD" => Country::BD,
+      #[cfg(feature = "country-BY")]
+      "BY" => Country::BY,
+      #[cfg(feature = "country-BE")]
+      "BE" => Country::BE,
+      #[cfg(feature = "country-BO")]
+      "BO" => Country::BO,
+      #[cfg(feature = "country-BA")]
+      "BA" => Country::BA,
+      #[cfg(feature = "country-BW")]
+      "BW" => Country::BW,
+      #[cfg(feature = "country-BR")]
+      "BR" => Country::BR,
+      #[cfg(feature = "country-BG")]
+      "BG" => Country::BG,
+      #[cfg(feature = "country-BI")]
+      "BI" => Country::BI,
+      #[cfg(feature = "country-CA")]
+      "CA" => Country::CA,
+      #[cfg(feature = "country-CL")]
+      "CL" => Country::CL,
+      #[cfg(feature = "country-CN")]
+      "CN" => Country::CN,
+      #[cfg(feature = "country-CO")]
+      "CO" => Country::CO,
+      #[cfg(feature = "country-HR")]
+      "HR" => Country::HR,
+      #[cfg(feature = "country-CU")]
+      "CU" => Country::CU,
+      #[cfg(feature = "country-CW")]
+      "CW" => Country::CW,
+      #[cfg(feature = "country-CY")]
+      "CY" => Country::CY,
+      #[cfg(feature = "country-CZ")]
+      "CZ" => Country::CZ,
+      #[cfg(feature = "country-DK")]
+      "DK" => Country::DK,
+      #[cfg(feature = "country-DJ")]
+      "DJ" => Country::DJ,
+      #[cfg(feature = "country-DO")]
+      "DO" => Country::DO,
+      #[cfg(feature = "country-EG")]
+      "EG" => Country::EG,
+      #[cfg(feature = "country-EE")]
+      "EE" => Country::EE,
+      #[cfg(feature = "country-ET")]
+      "ET" => Country::ET,
+      #[cfg(feature = "country-FI")]
+      "FI" => Country::FI,
+      #[cfg(feature = "country-FR")]
+      "FR" => Country::FR,
+      #[cfg(feature = "country-GE")]
+      "GE" => Country::GE,
+      #[cfg(feature = "country-DE")]
+      "DE" => Country::DE,
+      #[cfg(feature = "country-GR")]
+      "GR" => Country::GR,
+      #[cfg(feature = "country-HN")]
+      "HN" => Country::HN,
+      #[cfg(feature = "country-HK")]
+      "HK" => Country::HK,
+      #[cfg(feature = "country-HU")]
+      "HU" => Country::HU,
+      #[cfg(feature = "country-IS")]
+      "IS" => Country::IS,
+      #[cfg(feature = "country-IN")]
+      "IN" => Country::IN,
+      #[cfg(feature = "country-ID")]
+      "ID" => Country::ID,
+      #[cfg(feature = "country-IE")]
+      "IE" => Country::IE,
+      #[cfg(feature = "country-IM")]
+      "IM" => Country::IM,
+      #[cfg(feature = "country-IL")]
+      "IL" => Country::IL,
+      #[cfg(feature = "country-IT")]
+      "IT" => Country::IT,
+      #[cfg(feature = "country-JM")]
+      "JM" => Country::JM,
+      #[cfg(feature = "country-JP")]
+      "JP" => Country::JP,
+      #[cfg(feature = "country-KZ")]
+      "KZ" => Country::KZ,
+      #[cfg(feature = "country-KE")]
+      "KE" => Country::KE,
+      #[cfg(feature = "country-LV")]
+      "LV" => Country::LV,
+      #[cfg(feature = "country-LS")]
+      "LS" => Country::LS,
+      #[cfg(feature = "country-LI")]
+      "LI" => Country::LI,
+      #[cfg(feature = "country-LT")]
+      "LT" => Country::LT,
+      #[cfg(feature = "country-LU")]
+      "LU" => Country::LU,
+      #[cfg(feature = "country-MG")]
+      "MG" => Country::MG,
+      #[cfg(feature = "country-MY")]
+      "MY" => Country::MY,
+      #[cfg(feature = "country-MW")]
+      "MW" => Country::MW,
+      #[cfg(feature = "country-MT")]
+      "MT" => Country::MT,
+      #[cfg(feature = "country-MX")]
+      "MX" => Country::MX,
+      #[cfg(feature = "country-MD")]
+      "MD" => Country::MD,
+      #[cfg(feature = "country-MA")]
+      "MA" => Country::MA,
+      #[cfg(feature = "country-MZ")]
+      "MZ" => Country::MZ,
+      #[cfg(feature = "country-NL")]
+      "NL" => Country::NL,
+      #[cfg(feature = "country-NA")]
+      "NA" => Country::NA,
+      #[cfg(feature = "country-NZ")]
+      "NZ" => Country::NZ,
+      #[cfg(feature = "country-NI")]
+      "NI" => Country::NI,
+      #[cfg(feature = "country-NG")]
+      "NG" => Country::NG,
+      #[cfg(feature = "country-MK")]
+      "MK" => Country::MK,
+      #[cfg(feature = "country-NO")]
+      "NO" => Country::NO,
+      #[cfg(feature = "country-PK")]
+      "PK" => Country::PK,
+      #[cfg(feature = "country-PY")]
+      "PY" => Country::PY,
+      #[cfg(feature = "country-PE")]
+      "PE" => Country::PE,
+      #[cfg(feature = "country-PL")]
+      "PL" => Country::PL,
+      #[cfg(feature = "country-PT")]
+      "PT" => Country::PT,
+      #[cfg(feature = "country-RO")]
+      "RO" => Country::RO,
+      #[cfg(feature = "country-RU")]
+      "RU" => Country::RU,
+      #[cfg(feature = "country-SA")]
+      "SA" => Country::SA,
+      #[cfg(feature = "country-RS")]
+      "RS" => Country::RS,
+      #[cfg(feature = "country-SG")]
+      "SG" => Country::SG,
+      #[cfg(feature = "country-SK")]
+      "SK" => Country::SK,
+      #[cfg(feature = "country-SI")]
+      "SI" => Country::SI,
+      #[cfg(feature = "country-ZA")]
+      "ZA" => Country::ZA,
+      #[cfg(feature = "country-KR")]
+      "KR" => Country::KR,
+      #[cfg(feature = "country-ES")]
+      "ES" => Country::ES,
+      #[cfg(feature = "country-SZ")]
+      "SZ" => Country::SZ,
+      #[cfg(feature = "country-SE")]
+      "SE" => Country::SE,
+      #[cfg(feature = "country-CH")]
+      "CH" => Country::CH,
+      #[cfg(feature = "country-TW")]
+      "TW" => Country::TW,
+      #[cfg(feature = "country-TR")]
+      "TR" => Country::TR,
+      #[cfg(feature = "country-TN")]
+      "TN" => Country::TN,
+      #[cfg(feature = "country-UA")]
+      "UA" => Country::UA,
+      #[cfg(feature = "country-AE")]
+      "AE" => Country::AE,
+      #[cfg(feature = "country-GB")]
+      "GB" => Country::GB,
+      #[cfg(feature = "country-US")]
+      "US" => Country::US,
+      #[cfg(feature = "country-UY")]
+      "UY" => Country::UY,
+      #[cfg(feature = "country-UZ")]
+      "UZ" => Country::UZ,
+      #[cfg(feature = "country-VE")]
+      "VE" => Country::VE,
+      #[cfg(feature = "country-VN")]
+      "VN" => Country::VN,
+      #[cfg(feature = "country-ZM")]
+      "ZM" => Country::ZM,
+      #[cfg(feature = "country-ZW")]
+      "ZW" => Country::ZW,
+      _ => return Err(Error::CountryNotAvailable),
+    })
+  }
 }
+
+
+#[cfg(feature = "country-AO")]
+pub mod ao;
+
+#[cfg(feature = "country-AR")]
+pub mod ar;
+
+#[cfg(feature = "country-AM")]
+pub mod am;
+
+#[cfg(feature = "country-AW")]
+pub mod aw;
+
+#[cfg(feature = "country-AU")]
+pub mod au;
+
+#[cfg(feature = "country-AT")]
+pub mod at;
+
+#[cfg(feature = "country-AZ")]
+pub mod az;
+
+#[cfg(feature = "country-BD")]
+pub mod bd;
+
+#[cfg(feature = "country-BY")]
+pub mod by;
+
+#[cfg(feature = "country-BE")]
+pub mod be;
+
+#[cfg(feature = "country-BO")]
+pub mod bo;
+
+#[cfg(feature = "country-BA")]
+pub mod ba;
+
+#[cfg(feature = "country-BW")]
+pub mod bw;
+
+#[cfg(feature = "country-BR")]
+pub mod br;
+
+#[cfg(feature = "country-BG")]
+pub mod bg;
+
+#[cfg(feature = "country-BI")]
+pub mod bi;
+
+#[cfg(feature = "country-CA")]
+pub mod ca;
+
+#[cfg(feature = "country-CL")]
+pub mod cl;
+
+#[cfg(feature = "country-CN")]
+pub mod cn;
+
+#[cfg(feature = "country-CO")]
+pub mod co;
+
+#[cfg(feature = "country-HR")]
+pub mod hr;
+
+#[cfg(feature = "country-CU")]
+pub mod cu;
+
+#[cfg(feature = "country-CW")]
+pub mod cw;
+
+#[cfg(feature = "country-CY")]
+pub mod cy;
+
+#[cfg(feature = "country-CZ")]
+pub mod cz;
+
+#[cfg(feature = "country-DK")]
+pub mod dk;
+
+#[cfg(feature = "country-DJ")]
+pub mod dj;
+
+#[cfg(feature = "country-DO")]
+pub mod r#do;
+
+#[cfg(feature = "country-EG")]
+pub mod eg;
+
+#[cfg(feature = "country-EE")]
+pub mod ee;
+
+#[cfg(feature = "country-ET")]
+pub mod et;
+
+#[cfg(feature = "country-FI")]
+pub mod fi;
+
+#[cfg(feature = "country-FR")]
+pub mod fr;
+
+#[cfg(feature = "country-GE")]
+pub mod ge;
+
+#[cfg(feature = "country-DE")]
+pub mod de;
+
+#[cfg(feature = "country-GR")]
+pub mod gr;
+
+#[cfg(feature = "country-HN")]
+pub mod hn;
+
+#[cfg(feature = "country-HK")]
+pub mod hk;
+
+#[cfg(feature = "country-HU")]
+pub mod hu;
+
+#[cfg(feature = "country-IS")]
+pub mod is;
+
+#[cfg(feature = "country-IN")]
+pub mod r#in;
+
+#[cfg(feature = "country-ID")]
+pub mod id;
+
+#[cfg(feature = "country-IE")]
+pub mod ie;
+
+#[cfg(feature = "country-IM")]
+pub mod im;
+
+#[cfg(feature = "country-IL")]
+pub mod il;
+
+#[cfg(feature = "country-IT")]
+pub mod it;
+
+#[cfg(feature = "country-JM")]
+pub mod jm;
+
+#[cfg(feature = "country-JP")]
+pub mod jp;
+
+#[cfg(feature = "country-KZ")]
+pub mod kz;
+
+#[cfg(feature = "country-KE")]
+pub mod ke;
+
+#[cfg(feature = "country-LV")]
+pub mod lv;
+
+#[cfg(feature = "country-LS")]
+pub mod ls;
+
+#[cfg(feature = "country-LI")]
+pub mod li;
+
+#[cfg(feature = "country-LT")]
+pub mod lt;
+
+#[cfg(feature = "country-LU")]
+pub mod lu;
+
+#[cfg(feature = "country-MG")]
+pub mod mg;
+
+#[cfg(feature = "country-MY")]
+pub mod my;
+
+#[cfg(feature = "country-MW")]
+pub mod mw;
+
+#[cfg(feature = "country-MT")]
+pub mod mt;
+
+#[cfg(feature = "country-MX")]
+pub mod mx;
+
+#[cfg(feature = "country-MD")]
+pub mod md;
+
+#[cfg(feature = "country-MA")]
+pub mod ma;
+
+#[cfg(feature = "country-MZ")]
+pub mod mz;
+
+#[cfg(feature = "country-NL")]
+pub mod nl;
+
+#[cfg(feature = "country-NA")]
+pub mod na;
+
+#[cfg(feature = "country-NZ")]
+pub mod nz;
+
+#[cfg(feature = "country-NI")]
+pub mod ni;
+
+#[cfg(feature = "country-NG")]
+pub mod ng;
+
+#[cfg(feature = "country-MK")]
+pub mod mk;
+
+#[cfg(feature = "country-NO")]
+pub mod no;
+
+#[cfg(feature = "country-PK")]
+pub mod pk;
+
+#[cfg(feature = "country-PY")]
+pub mod py;
+
+#[cfg(feature = "country-PE")]
+pub mod pe;
+
+#[cfg(feature = "country-PL")]
+pub mod pl;
+
+#[cfg(feature = "country-PT")]
+pub mod pt;
+
+#[cfg(feature = "country-RO")]
+pub mod ro;
+
+#[cfg(feature = "country-RU")]
+pub mod ru;
+
+#[cfg(feature = "country-SA")]
+pub mod sa;
+
+#[cfg(feature = "country-RS")]
+pub mod rs;
+
+#[cfg(feature = "country-SG")]
+pub mod sg;
+
+#[cfg(feature = "country-SK")]
+pub mod sk;
+
+#[cfg(feature = "country-SI")]
+pub mod si;
+
+#[cfg(feature = "country-ZA")]
+pub mod za;
+
+#[cfg(feature = "country-KR")]
+pub mod kr;
+
+#[cfg(feature = "country-ES")]
+pub mod es;
+
+#[cfg(feature = "country-SZ")]
+pub mod sz;
+
+#[cfg(feature = "country-SE")]
+pub mod se;
+
+#[cfg(feature = "country-CH")]
+pub mod ch;
+
+#[cfg(feature = "country-TW")]
+pub mod tw;
+
+#[cfg(feature = "country-TR")]
+pub mod tr;
+
+#[cfg(feature = "country-TN")]
+pub mod tn;
+
+#[cfg(feature = "country-UA")]
+pub mod ua;
+
+#[cfg(feature = "country-AE")]
+pub mod ae;
+
+#[cfg(feature = "country-GB")]
+pub mod gb;
+
+#[cfg(feature = "country-US")]
+pub mod us;
+
+#[cfg(feature = "country-UY")]
+pub mod uy;
+
+#[cfg(feature = "country-UZ")]
+pub mod uz;
+
+#[cfg(feature = "country-VE")]
+pub mod ve;
+
+#[cfg(feature = "country-VN")]
+pub mod vn;
+
+#[cfg(feature = "country-ZM")]
+pub mod zm;
+
+#[cfg(feature = "country-ZW")]
+pub mod zw;
