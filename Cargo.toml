@@ -1,6 +1,6 @@
 [package]
 name = "holidays2"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2024"
 description = "Rust library to provide accurate and up-to-date holiday dates based on Python holidays package"
 readme = "README.md"
