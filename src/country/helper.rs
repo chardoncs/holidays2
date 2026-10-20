@@ -3,7 +3,7 @@ use chrono::NaiveDate;
 use crate::{prelude::*, Holiday, HolidayPerCountryMap, Year};
 
 pub fn should_build_year(years: &Option<&std::ops::Range<Year>>, year: Year) -> bool {
-    years.map_or(true, |r| r.contains(&year))
+    years.is_none_or(|r| r.contains(&year))
 }
 
 pub fn build_year(

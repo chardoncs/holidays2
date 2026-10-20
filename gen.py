@@ -176,18 +176,14 @@ pub mod {{country.code|escape}};
 """
 
 build = """
-use std::collections::HashSet;
-
 use crate::{prelude::*, HolidayMap, Result, Year};
 
-/// Generate holiday map for the specified countries and years.
-pub fn build(countries: Option<&HashSet<Country>>, years: Option<&std::ops::Range<Year>>) -> Result<HolidayMap> {
+/// Generate the holiday map for every compiled-in country.
+pub fn build(years: Option<&std::ops::Range<Year>>) -> Result<HolidayMap> {
   let mut map = HolidayMap::new();
 {% for country in countries %}
   #[cfg(feature = "country-{{country.code}}")]
-  if countries.is_none() || countries.unwrap().contains(&Country::{{country.code}}) {
-      map.insert(Country::{{country.code}}, {{country.code|escape}}::build(&years)?);
-  }
+  map.insert(Country::{{country.code}}, {{country.code|escape}}::build(&years)?);
 {% endfor %}
   Ok(map)
 }

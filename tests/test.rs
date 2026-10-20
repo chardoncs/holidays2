@@ -1,23 +1,8 @@
 use chrono::NaiveDate;
-use holidays::{contains, get, init, iter, Builder, Country, Error, NaiveDateExt};
-use serial_test::serial;
+use holidays2::{Country, Error, NaiveDateExt, build, contains, data, get, iter};
 
 #[test]
-#[serial]
-fn init_all() -> anyhow::Result<()> {
-    init()?;
-
-    let d = NaiveDate::from_ymd_res(2022, 1, 1)?;
-    assert_eq!("元日", get(Country::JP, d)?.unwrap().name);
-
-    Ok(())
-}
-
-#[test]
-#[serial]
-fn build_by_country() -> anyhow::Result<()> {
-    Builder::new().countries(&[Country::JP]).init()?;
-
+fn get_holiday() -> anyhow::Result<()> {
     let d = NaiveDate::from_ymd_res(2022, 1, 1)?;
     assert_eq!("元日", get(Country::JP, d)?.unwrap().name);
     assert!(contains(Country::JP, d)?);
@@ -26,50 +11,71 @@ fn build_by_country() -> anyhow::Result<()> {
     assert_eq!("元日", get(Country::JP, d)?.unwrap().name);
     assert!(contains(Country::JP, d)?);
 
-    // Get None for non public holiday.
+    let d = NaiveDate::from_ymd_res(2022, 1, 1)?;
+    assert_eq!("New Year's Day", get(Country::US, d)?.unwrap().name);
+    assert!(contains(Country::US, d)?);
+
+    Ok(())
+}
+
+#[test]
+fn get_none_for_non_holiday() -> anyhow::Result<()> {
+    // Not a public holiday in Japan.
     let d = NaiveDate::from_ymd_res(2022, 1, 2)?;
     assert!(get(Country::JP, d)?.is_none());
     assert!(!contains(Country::JP, d)?);
 
-    // Get an error for unsupported country.
-    assert!(get(Country::US, d).is_err());
-    assert!(contains(Country::US, d).is_err());
-
     Ok(())
 }
 
 #[test]
-#[serial]
-fn build_by_year() -> anyhow::Result<()> {
-    Builder::new().years(2022..2023).init()?;
-
-    let d = NaiveDate::from_ymd_res(2022, 1, 1)?;
-    assert_eq!("元日", get(Country::JP, d)?.unwrap().name);
-    assert_eq!("New Year's Day", get(Country::US, d)?.unwrap().name);
-    assert!(contains(Country::JP, d)?);
-    assert!(contains(Country::US, d)?);
-
-    // Get an error for unsupported year.
-    let d = NaiveDate::from_ymd_res(2023, 1, 1)?;
+fn get_year_not_available() -> anyhow::Result<()> {
+    // The database is generated from 2001 to 2030.
+    let d = NaiveDate::from_ymd_res(1990, 1, 1)?;
     assert_eq!(Error::YearNotAvailable, get(Country::JP, d).unwrap_err());
-    assert_eq!(Error::YearNotAvailable, get(Country::US, d).unwrap_err());
     assert_eq!(
         Error::YearNotAvailable,
         contains(Country::JP, d).unwrap_err()
     );
-    assert_eq!(
-        Error::YearNotAvailable,
-        contains(Country::US, d).unwrap_err()
-    );
 
     Ok(())
 }
 
 #[test]
-#[serial]
-fn iterate() -> anyhow::Result<()> {
-    init()?;
+fn data_is_shared() {
+    // There is no initialization step: the database is built on first access.
+    assert!(data().contains_key(&Country::JP));
+    assert!(data().contains_key(&Country::US));
+}
 
+#[test]
+fn build_by_year() -> anyhow::Result<()> {
+    let map = build(Some(2022..2023))?;
+
+    let jp = map.get(&Country::JP).expect("JP should be built");
+    assert!(jp.contains_key(&2022));
+    assert!(!jp.contains_key(&2023));
+
+    let us = map.get(&Country::US).expect("US should be built");
+    assert!(us.contains_key(&2022));
+    assert!(!us.contains_key(&2023));
+
+    Ok(())
+}
+
+#[test]
+fn build_all_years() -> anyhow::Result<()> {
+    let map = build(None)?;
+
+    // Building without a range gives the same database as the shared one.
+    assert_eq!(map.len(), data().len());
+    assert!(map[&Country::JP].contains_key(&2030));
+
+    Ok(())
+}
+
+#[test]
+fn iterate() -> anyhow::Result<()> {
     let s = NaiveDate::from_ymd_res(2022, 1, 1)?;
     let u = NaiveDate::from_ymd_res(2023, 1, 1)?;
     assert_eq!(
@@ -98,28 +104,9 @@ fn iterate() -> anyhow::Result<()> {
 }
 
 #[test]
-#[serial]
-fn iterate_country_not_available() -> anyhow::Result<()> {
-    Builder::new().countries(&[Country::JP]).init()?;
-    let s = NaiveDate::from_ymd_res(2022, 1, 1)?;
-    let u = NaiveDate::from_ymd_res(2023, 1, 1)?;
-    assert_eq!(
-        Error::CountryNotAvailable,
-        iter(Country::US, s, u).unwrap_err(),
-    );
-
-    Ok(())
-}
-
-#[test]
-#[serial]
-fn iterate_year_not_available() -> anyhow::Result<()> {
-    Builder::new()
-        .countries(&[Country::JP])
-        .years(2000..2020)
-        .init()?;
-    let s = NaiveDate::from_ymd_res(2022, 1, 1)?;
-    let u = NaiveDate::from_ymd_res(2023, 1, 1)?;
+fn iterate_without_holidays() -> anyhow::Result<()> {
+    let s = NaiveDate::from_ymd_res(1990, 1, 1)?;
+    let u = NaiveDate::from_ymd_res(1991, 1, 1)?;
     assert_eq!(
         Vec::<NaiveDate>::new(),
         iter(Country::JP, s, u)?.map(|h| h.date).collect::<Vec<_>>()

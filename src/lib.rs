@@ -1,5 +1,4 @@
 mod build;
-mod builder;
 mod country;
 mod iter;
 mod prelude;
@@ -7,10 +6,10 @@ mod prelude;
 pub use prelude::*;
 
 use chrono::{Datelike, NaiveDate};
-use once_cell::sync::Lazy;
 use std::{
     collections::{BTreeMap, HashMap},
-    sync::RwLock,
+    ops::Range,
+    sync::LazyLock,
 };
 
 /// Type alias for Holiday map.
@@ -23,27 +22,38 @@ pub type Year = i32;
 /// Result type of this crate.
 pub type Result<T> = std::result::Result<T, Error>;
 
-static DATA: Lazy<RwLock<HolidayMap>> = Lazy::new(|| RwLock::new(HolidayMap::new()));
+/// Holiday database shared by [`get`], [`contains`] and [`iter`].
+///
+/// It is populated on first access and lives for the rest of the program, so
+/// there is no initialization step to call. Which countries are compiled in is
+/// decided at build time by the `country-*` Cargo features.
+static DATA: LazyLock<HolidayMap> =
+    LazyLock::new(|| build::build(None).expect("failed to build the holiday database"));
 
-/// Initialize holiday database for all the supported countries and years.
-/// Note that this will use quite lots of memory. Please consider using
-/// `Builder` to specify countries and years to load for if you're concerned
-/// about memory usage.
-pub fn init() -> Result<()> {
-    let map = Builder::new().build()?;
-    init_holiday(map)
+/// Get the holiday database shared by this crate.
+///
+/// The database holds every compiled-in country and every generated year and is
+/// built on first access. Prefer this over [`build`] unless you need a map
+/// limited to a range of years.
+pub fn data() -> &'static HolidayMap {
+    LazyLock::force(&DATA)
+}
+
+/// Build a holiday database from scratch.
+///
+/// Pass `Some(range)` to only include the given years, or `None` to include
+/// every generated year. The database built here is owned by the caller and is
+/// independent of the one returned by [`data`], which makes it usable in a
+/// single threaded context or when only a few years are needed.
+pub fn build(years: Option<Range<Year>>) -> Result<HolidayMap> {
+    build::build(years.as_ref())
 }
 
 /// Get holiday by ISO 3166-1 alpha-2 country code and date. If the specified country or year is
 /// not available, it will return `Err(Error)`. If the specified date is not a holiday, it
 /// will return `Ok(None)`. Otherwise, it will return `Ok(Some(Holiday))`.
 pub fn get(country: Country, date: NaiveDate) -> Result<Option<Holiday>> {
-    let Some(data) = Lazy::get(&DATA) else {
-        return Err(Error::Uninitialized);
-    };
-
-    let data = data.read().map_err(|e| Error::LockError(e.to_string()))?;
-    let Some(map) = data.get(&country) else {
+    let Some(map) = DATA.get(&country) else {
         return Err(Error::CountryNotAvailable);
     };
 
@@ -58,12 +68,7 @@ pub fn get(country: Country, date: NaiveDate) -> Result<Option<Holiday>> {
 /// not available, it will return `Err(Error)`. If the date is not a holiday, it
 /// will return `Ok(false)`. Otherwise, it will return `Ok(true)`.
 pub fn contains(country: Country, date: NaiveDate) -> Result<bool> {
-    let Some(data) = Lazy::get(&DATA) else {
-        return Err(Error::Uninitialized);
-    };
-
-    let data = data.read().map_err(|e| Error::LockError(e.to_string()))?;
-    let Some(map) = data.get(&country) else {
+    let Some(map) = DATA.get(&country) else {
         return Err(Error::CountryNotAvailable);
     };
 
@@ -112,25 +117,9 @@ pub enum Error {
     /// Holiday is not available for this year.
     #[error("Holiday is not available for this year")]
     YearNotAvailable,
-    /// Holiday database is not initialized yet.
-    #[error("Holiday database is not initialized yet")]
-    Uninitialized,
-    /// Failed to get RwLock.
-    #[error("Failed to get RwLock: {0}")]
-    LockError(String),
     /// Unexpexted error occurred.
     #[error("Unexpexted error occurred: {0}")]
     Unexpected(String),
-}
-
-fn init_holiday(map: HolidayMap) -> Result<()> {
-    match DATA.write() {
-        Ok(mut data) => {
-            *data = map;
-            Ok(())
-        }
-        Err(e) => Err(Error::LockError(e.to_string())),
-    }
 }
 
 /// Helper trait used inside the crate and tests.

@@ -27,34 +27,29 @@ To keep freshness of the holiday database, we're planning to have Github Actions
 
 ## Usage
 
-The simplest usage is to call `holidays::init` to initialize holiday database in thread-safe `HashMap`. After holiday database is initialized, you can call `holidays::contains` to check if the specified date is a holiday or not. Calls `holidays::get` to gen an object which contains country code, country name, date and name of the holiday.
+The simplest usage is to call `holidays2::contains` to check if the specified date is a holiday or not. Calls `holidays2::get` to get an object which contains country code, country name, date and name of the holiday. The holiday database is stored in a `LazyLock` and built on first access, so there is nothing to initialize.
 ```rust
 use chrono::NaiveDate;
-use holidays::Country;
+use holidays2::Country;
 
 fn main() -> anyhow::Result<()> {
-    holidays::init()?;
-
     let d = NaiveDate::from_ymd_opt(2022, 1, 1).expect("Invalid date");
-    println!("Is {d} a holiday in Japan? Answer is {}", holidays::contains(Country::JP, d)?);
-    println!("{:?}", holidays::get(Country::JP, d)?.unwrap());
+    println!("Is {d} a holiday in Japan? Answer is {}", holidays2::contains(Country::JP, d)?);
+    println!("{:?}", holidays2::get(Country::JP, d)?.unwrap());
 
     Ok(())
 }
 ```
 
-**`Note that holidays::init will load the holidays of all the supported countries and years into memory, so it's quite heavy.`** If you need holidays of certain countries and years, please consider using `holidays::Builder` to limit them.
+**`Note that the first access will load the holidays of all the compiled-in countries and generated years into memory, so it's quite heavy.`** If you only need a subset of years, or want to own the data instead of sharing it, build the database yourself:
 
 ```rust
-holidays::Builder::new()
-        .countries(&[Country::JP])
-        .years(2022..2023)
-        .init()?;
+let map = holidays2::build(Some(2022..2023))?;
 ```
 
 If you know what countries are needed at compile-time, you can specify the country code in `Cargo.toml`. This can improve the build performance significantly.
 ```toml
-holidays = { version = "*", default-features = false, features = ["country-JP"] }
+holidays2 = { version = "*", default-features = false, features = ["country-JP"] }
 ```
 
 Every supported country is exposed as a `country-<ISO 3166-1 alpha-2 code>` feature (for example `country-JP` or `country-US`). The `country-all` feature enables all of them and is turned on by default.
@@ -68,7 +63,7 @@ https://github.com/dr-prodigy/python-holidays#available-countries
 ## FAQ
 
 * Q: How can I use this crate in a single threaded environment?
-* A: Don't call `init` nor `holidays::Builder`s `init` methods. Instead, you can get the internal HashMap by calling `holidays::Builder`'s `build` method.
+* A: The shared database is a `LazyLock<HolidayMap>` shared by reference, so it needs no locking and already works in a single threaded program. If you don't want a process-wide database at all, call `holidays2::build` (optionally with a range of years) to get an owned `HolidayMap`.
 
 ## Acknowledgement
 

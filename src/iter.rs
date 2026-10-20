@@ -1,7 +1,6 @@
 use chrono::{Datelike, NaiveDate};
-use once_cell::sync::Lazy;
 
-use crate::{prelude::*, Error, Holiday, Result, DATA};
+use crate::{DATA, Error, Holiday, Result, prelude::*};
 use std::collections::VecDeque;
 
 #[derive(Debug)]
@@ -32,24 +31,19 @@ impl std::iter::Iterator for Iter {
 /// Iterate holidays by dates.
 #[allow(dead_code)]
 pub fn iter(country: Country, since: NaiveDate, until: NaiveDate) -> Result<Iter> {
-    let Some(data) = Lazy::get(&DATA) else {
-        return Err(Error::Uninitialized);
-    };
-
     let mut buf = VecDeque::new();
+
+    let Some(map) = DATA.get(&country) else {
+        return Err(Error::CountryNotAvailable);
+    };
 
     let mut y = since.year();
     while y <= until.year() {
-        let data = data.read().map_err(|e| Error::LockError(e.to_string()))?;
-        let Some(map) = data.get(&country) else {
-            return Err(Error::CountryNotAvailable);
-        };
-
-        let Some(map) = map.get(&y) else {
+        let Some(year_map) = map.get(&y) else {
             break;
         };
 
-        buf.extend(map.values().cloned());
+        buf.extend(year_map.values().cloned());
 
         y += 1;
     }
