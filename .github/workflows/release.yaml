@@ -1,21 +1,117 @@
-name: Publish to crates.io
+# Release pipeline: cut a GitHub release from a pushed `v*` tag and publish the
+# crate to crates.io.
+#
+# The tag is the source of truth for the version: it must match the one in
+# Cargo.toml, and the release body is the tag's changelog section rendered by
+# git-cliff (see cliff.toml). To cut a release:
+#
+#   # bump the version in Cargo.toml, then:
+#   just changelog
+#   git commit -am "chore(release): prepare vX.Y.Z"
+#   git tag vX.Y.Z
+#   git push origin main vX.Y.Z
+#
+# `workflow_dispatch` is a dry run: verification runs as usual, while the
+# GitHub release and the crates.io publish are skipped (both are guarded by
+# the tag check).
+
+name: Release
 
 on:
-  release:
-    types: [released]
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  CARGO_TERM_COLOR: always
 
 jobs:
-  publish:
-    name: publish
+  verify:
+    name: Verify
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Login
-        uses: actions-rs/cargo@v1
+      - uses: actions/checkout@v7
         with:
-          command: login
-          args: ${{ secrets.CRATES_IO_API_TOKEN }}
+          fetch-depth: 0
+      - name: Set up Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - name: Check tag matches crate version
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+          version="$(cargo metadata --no-deps --format-version 1 | jq -r '.packages[] | select(.name == "holidays2") | .version')"
+          tag="${GITHUB_REF_NAME#v}"
+          if [[ "$tag" != "$version" ]]; then
+            echo "::error::Tag ${GITHUB_REF_NAME} does not match crate version ${version}"
+            exit 1
+          fi
+
+      - name: Format
+        run: cargo fmt --all -- --check
+      - name: Clippy
+        run: cargo clippy --workspace --all-targets --all-features -- --deny clippy::all
+      - name: Tests
+        run: cargo test --all-features
+      # Pack and build the crate from exactly the files that would be uploaded,
+      # so packaging or metadata problems fail before a release exists.
+      - name: Package
+        run: cargo package
+
+  release:
+    name: Publish GitHub release
+    needs: [verify]
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      # git-cliff needs the full history and all tags to render the section of
+      # the pushed tag.
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      # Render only the pushed tag's changelog section (--latest, without the
+      # changelog header) and use it as the release body.
+      - name: Generate changelog
+        uses: orhun/git-cliff-action@v4
+        id: git-cliff
+        with:
+          config: cliff.toml
+          args: --latest --strip header
+        env:
+          OUTPUT: CHANGES.md
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --verify-tag \
+            --title "${GITHUB_REF_NAME}" \
+            --notes-file "${{ steps.git-cliff.outputs.changelog }}"
+
+  publish:
+    name: Publish to crates.io
+    needs: [release]
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v7
+      - name: Set up Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
       - name: Publish
-        uses: actions-rs/cargo@v1
-        with:
-          command: publish
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ secrets.CRATES_IO_API_TOKEN }}
+        run: cargo publish

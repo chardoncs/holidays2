@@ -6,35 +6,48 @@ on:
   pull_request:
     branches: [ "*" ]
 
+env:
+  CARGO_TERM_COLOR: always
+
 jobs:
   test:
     name: test
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v7
       - name: Set up Rust toolchain
-        uses: actions-rs/toolchain@v1
+        uses: dtolnay/rust-toolchain@stable
         with:
-          profile: minimal
-          toolchain: stable
           components: rustfmt, clippy
       - name: Format
-        uses: actions-rs/cargo@v1
-        with:
-          command: fmt
-          args: --all -- --check
+        run: cargo fmt --all -- --check
       - name: Build
-        uses: actions-rs/cargo@v1
-        with:
-          command: build
-          args: --workspace --all-targets --all-features
+        run: cargo build --workspace --all-targets --all-features
       - name: Clippy
-        uses: actions-rs/cargo@v1
-        with:
-          command: clippy
-          args: --workspace --all-targets --all-features -- --deny clippy::all
+        run: cargo clippy --workspace --all-targets --all-features -- --deny clippy::all
       - name: Tests
-        uses: actions-rs/cargo@v1
+        run: cargo test
+
+  changelog:
+    name: changelog
+    runs-on: ubuntu-latest
+
+    steps:
+      # git-cliff renders releases from the full history and tag set.
+      - uses: actions/checkout@v7
         with:
-          command: test
+          fetch-depth: 0
+      # Guards cliff.toml: a broken config or template fails here instead of on
+      # the release tag. The section is only rendered, not compared with the
+      # committed CHANGELOG.md (which is regenerated with `just changelog`
+      # right before tagging, so it trails the tag's own section).
+      - name: Render unreleased changelog section
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: --unreleased --strip header
+        env:
+          OUTPUT: CHANGES.md
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ github.token }}
