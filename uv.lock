@@ -15,8 +15,8 @@ wheels = [
 ]
 
 [[package]]
-name = "holidays2"
-version = "0.1.0"
+name = "holidays2-gen"
+version = "0.0.0"
 source = { virtual = "." }
 dependencies = [
     { name = "holidays" },

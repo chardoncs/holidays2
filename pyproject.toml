@@ -1,6 +1,6 @@
 [project]
-name = "holidays2"
-version = "0.1.0"
+name = "holidays2-gen"
+version = "0.0.0"
 readme = "README.md"
 authors = [
     { name = "Charles Dong", email = "chardon_cs@proton.me" }
